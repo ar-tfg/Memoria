@@ -1,0 +1,196 @@
+
+\chapter{Comparación y análisis de las librerías}
+
+\section{Wikitude}
+
+\subsection{Calidad de la documentación y primeros pasos}
+\subsection{Evaluación de las capacidades de la librería}
+\subsection{Conclusiones}
+
+\section{ARKit}
+\subsection{Calidad de la documentación y primeros pasos}
+\lipsum[1]
+\subsection{Evaluación de las capacidades de la librería}
+\lipsum[1]
+\subsection{Conclusiones}
+\lipsum[1]
+
+\section{ARCore}
+\subsection{Calidad de la documentación y primeros pasos}
+\lipsum[1]
+\subsection{Evaluación de las capacidades de la librería}
+\lipsum[1]
+\subsection{Conclusiones}
+\lipsum[1]
+
+\section{Vuforia}
+\subsection{Calidad de la documentación y primeros pasos}
+\lipsum[1]
+\subsection{Evaluación de las capacidades de la librería}
+\lipsum[1]
+\subsection{Conclusiones}
+\lipsum[1]
+
+\section{Kudan}
+\subsection{Calidad de la documentación y primeros pasos}
+\lipsum[1]
+\subsection{Evaluación de las capacidades de la librería}
+\lipsum[1]
+\subsection{Conclusiones}
+\lipsum[1]
+
+\section{MaxST}
+\subsection{Calidad de la documentación y primeros pasos}
+\lipsum[1]
+\subsection{Evaluación de las capacidades de la librería}
+\lipsum[1]
+\subsection{Conclusiones}
+\lipsum[1]
+
+\section{8th Wall XR}
+\subsection{Calidad de la documentación y primeros pasos}
+\lipsum[1]
+\subsection{Evaluación de las capacidades de la librería}
+\lipsum[1]
+\subsection{Conclusiones}
+\lipsum[1]
+
+\section{Easy AR}
+\subsection{Calidad de la documentación y primeros pasos}
+\lipsum[1]
+\subsection{Evaluación de las capacidades de la librería}
+\lipsum[1]
+\subsection{Conclusiones}
+\lipsum[1]
+
+\section{ARFoundation}
+\subsection{Calidad de la documentación y primeros pasos}
+\lipsum[1]
+\subsection{Evaluación de las capacidades de la librería}
+\lipsum[1]
+\subsection{Conclusiones}
+\lipsum[1]
+
+\section{ARToolKit}
+Información de la librería, desarrollo de HolaMundo y conclusiones
+En nuestros primeros pasos en el mundo de la realidad aumentada exploramos algunas librerías como ARToolKit, con el fin de familiarizarnos con el desarrollo de este tipo de aplicaciones.\\
+ARToolKit es una de las librerías de desarrollo pioneras en el ámbito que investigamos, disponible desde el año 2004 para descargar de manera gratuita y que cuenta con más de 160.000 descargas desde entonces. Se distribuyó para diversas plataformas como SGI IRIX (que dejó de utilizarse en 2006), Linux, MacOS y Windows y fue desarrollada originalmente por el Dr. Hirokazu Kato para posteriormente pasar a manos del Human Interface Technology Laboratory en la Universidad de Washington, la de Nueva Zelanda y ARToolworks.Inc en Seattle.\\
+
+Muchas librerías posteriores se han basado en el código de ésta para ampliar sus funcionalidades, dando lugar a algunas como ARTag (que promete mayor fiabilidad a la hora de procesar imágenes por su mejor manejo de la luz), FLARToolKit (consistente en un port en ActionScript 3), ARDesktop (que facilita la creación de interfaces) o Studierstube Tracker (que mejora sus características, pero deja de ser de código abierto).\\
+Además de todas las derivaciones de ARToolKit, también podemos encontrar software no orientado a programadores como ATOMIC Authoring Tool, que permitía a cualquier usuario el desarrollo de una aplicación de realidad aumentada de manera sencilla y con una interfaz intuitiva. Esta herramienta acabó cayendo en desuso a principios de la década de 2010 debido a que ya existían librerías mejores que ARToolKit y mejores alternativas en lo que a SDK se refiere.\\
+
+Al ser ARToolKit una de las primeras herramientas para el desarrollo de realidad aumentada, no contemplaba un uso de esta sin marcadores. Una de las mayores dificultades a las que se enfrentó fue el seguimiento del “ojo” del usuario, es decir, el foco de la cámara del dispositivo. Para saber desde qué perspectiva debía dibujar los elementos virtuales la aplicación necesitaba saber a dónde está mirando el usuario en el mundo real. La librería solventa este problema utilizando algoritmos de visión que calculan la localización y orientación de la cámara basándose en marcadores físicos en tiempo real.
+Los marcadores que es capaz de identificar consisten en la mayoría de los casos en un cuadrado negro bien contrastado con un fondo e interior blancos. Además, cada marcador, para diferenciarse del resto incluye pequeñas variaciones como otras figuras geométricas dentro del cuadrado.\\
+
+Para nuestros experimentos con ARToolKit, en lugar de utilizar la librería original, utilizamos un port de la misma para ser utilizada en Unity, que puede encontrarse actualmente en https://github.com/artoolkit/arunity5. Esta extensión nos permite el acceso a componentes como ARController y ARMarker dentro del editor.\\
+
+Para el desarrollo de este “HolaMundo” con ARToolKit en Unity hemos seguido los siguientes pasos: creamos un gameObject  que servirá como “raíz” de la escena y otro que actuará como mánager del sistema de realidad aumentada. Al mánager le incluimos el componente ARController, que está encargado de las opciones de video y del seguimiento de los marcadores. Dentro de éste modificamos la Layer a la que debe prestar atención. \\
+
+Por otra parte, el objeto raíz de la escena incluye la luz direccional y la cámara, y además le añadimos el script AROrigin, que permite situar espacialmente la escena. La cámara, además de su script de cámara recibe un ARCamera para poder detectar los marcadores.\\
+
+Ahora creamos un objeto que llevará la información del marcador y le añadimos el componente ARMarker, que lleva el tag del marcador que hace las veces de identificador único. Este componente tiene dos tipos de patrones para identificar por defecto: hiro y kanji. En este caso utilizaremos el patrón “hiro”, que es el que consiste en un cuadrado negro simple.\\
+
+Añadimos a la raíz de la escena un objeto que será contenedor del objeto 3D que queremos que aparezca cuando enfocamos al marcador y que lleva el script ARTrackedObject y dentro del campo “Marker Tag” introducimos el identificador del marcador asociado al objeto.\\
+
+Conclusiones: si bien este sistema fue útil en su día para sentar las bases del desarrollo de programas en realidad aumentada, hoy en día no tiene mucho sentido su uso. No se encuentra casi documentación actualizada para su uso y la página web que le daba soporte (artoolkit.org) ha desaparecido. Además, sus funcionalidades son muy limitadas y su rendimiento es muy inferior al que presentan otras alternativas más actuales como Vuforia, que permite también el uso de marcadores. Sí que es cierto que una aplicación generada con esta librería y que realiza la misma funcionalidad que otra, pero generada usando Vuforia pesa ligeramente menos. Sin embargo, no consideramos que sobre todo el conjunto este dato sea lo suficientemente significativo como para plantearse su uso.\\
+\section{Evaluación}
+\subsection{Tabla de funcionalidades}
+A continuación, hay una tabla en el que se puede comparar rápidamente las funcionalidades que tiene cada una de las librerías que vamos a analizar. Más adelante, en la parte de comparación y análisis de las librerías, evaluaremos la calidad y eficiencia de estas funcionalidades para cada librería.
+
+\begin{table}[ht]
+\resizebox{\textwidth}{!} {
+    \centering
+    \begin{tabular}{m{2cm}|m{2.8cm}|m{2.8cm}|m{2cm}|c|m{2.8cm}|m{2cm}|m{2cm}}
+        SDK & Reconocimiento 2D & Reconocimiento 3D & Detección de planos & SLAM & Reconocimiento de rostro & Estimación de luces & Otras \\
+\hline
+\textbf{Wikitude} & \checkmark & \checkmark & \checkmark & \checkmark & - & \checkmark & Geo AR \\
+\hline
+\textbf{ARKit} & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & Oclusión, Cloud Anchor \\
+\hline
+\textbf{ARCore} & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & Cloud Anchor \\
+\hline
+\textbf{Vuforia} & \checkmark & \checkmark & \checkmark & \checkmark & - & \checkmark &  \\
+\hline
+\textbf{Kudan} & \checkmark & - & \checkmark & \checkmark & - & \checkmark &  \\
+\hline
+\textbf{MaxST} & \checkmark & \checkmark & \checkmark & \checkmark & – & \checkmark & \\
+\hline
+\textbf{8th Wall XR} & \checkmark & – & \checkmark & \checkmark & – & \checkmark &  \\
+\hline
+\textbf{EasyAR} & \checkmark & \checkmark & \checkmark & \checkmark & – & \checkmark & Grabación de pantalla \\
+\hline
+\textbf{AR Foundation} & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \\
+\hline
+    \end{tabular}
+  }
+    \caption{Comparación de funcionalidades}
+    \label{tab:funcionalidades}
+\end{table}
+Como vemos en la tabla, menos en el reconocimiento de rostro, casi todas las librerías tienen las mismas funcionalidades, por lo que a priori nos sirve cualquiera para realizar nuestras pruebas de concepto, pero antes toca probarlas y ver cuál es la librería que mejor implementadas y pulidas tiene estas funcionalidades.
+
+\subsection{Usabilidad}
+Este apartado consistirá en dos apartados, en la primera compararemos en que plataformas se pueden ejecutar las librerías, y luego comparemos en que plataforma y lenguajes se pueden programar las aplicaciones.
+
+\begin{table}[ht]
+\resizebox{\textwidth}{!} {
+    \centering
+    \begin{tabular}{c|c|c|c|c|c|c|c}
+       SDK &	Unity3D (Android, iOS) &	Unreal Engine 4 &	Java &	Objective-C &	C++ & JavaScript \\
+       \hline
+Wikitude & \checkmark & – & \checkmark & \checkmark & – & \checkmark \\
+\hline
+ARKit & \checkmark & \checkmark & – & \checkmark & – & – \\
+\hline
+ARCore & \checkmark & \checkmark & \checkmark & \checkmark & – & – \\
+\hline
+Vuforia & \checkmark & – & \checkmark & \checkmark & \checkmark & – \\
+\hline
+Kudan & \checkmark & – & \checkmark & \checkmark & – & – \\
+\hline
+MaxST & \checkmark & – & \checkmark & – & \checkmark & – \\
+\hline
+8th Wall  & \checkmark & – & – & – & – & \checkmark \\
+\hline
+EasyAR & \checkmark & – & \checkmark & \checkmark & \checkmark & – \\
+\hline
+AR Foundation & \checkmark & – & – & – & – & – \\
+\hline
+    \end{tabular}
+  }
+    \caption{Comparación de funcionalidades}
+    \label{tab:funcionalidades}
+\end{table}
+
+Podemos ver que prácticamente todas las librerías soportan Android e iOS, con lo que podemos deducir que es donde más se está invirtiendo en el mercado. Quizás las Smart Glasses puedan brindar una experiencia de realidad aumentada más agradable, pero todavía está muy lejos de ser accesible para la mayoría de la población, mientras que un dispositivo móvil es mucho más asequible.
+
+Con esta tabla, es muy fácil ver que Unity3D sale ganador, podemos trabajar con absolutamente todas las librerías, además, gracias a su editor y entorno visual, resulta muchísimo más cómodo y ahorra mucho tiempo a la hora de hacer una aplicación de realidad aumentada.
+
+\section{Conclusiones prueba de concepto}
+\begin{table}[H]
+\resizebox{\textwidth}{!} {
+    \centering
+    \begin{tabular}{m{3cm}|c|c|c|c|c|c|c|c|c}
+    &Wikitude&	ARKit &	ARcore & Vuforia &	MaxST &	EasyAR & Kudan & 8th Wall XR & ARFoundation\\
+     \hline
+         Calidad de la documentación      &          &       &        &         &       &        &       &             &              \\
+ \hline
+ Distancia máxima de captura (m)  &          &       &        &         &       &        &       &             &              \\
+  \hline
+Estabilidad del punto de anclaje &          &       &        &         &       &        &       &             &              \\
+ \hline
+Comportamiento con luz intensa   &          &       &        &         &       &        &       &             &              \\
+ \hline
+Comportamiento con luz ambiente  &          &       &        &         &       &        &       &             &              \\
+ \hline
+Comportamiento con luz tenue     &          &       &        &         &       &        &       &             &              \\
+ \hline
+Estimación de luces              &          &       &        &         &       &        &       &             &              \\
+ \hline
+Total (puntuación)               &          &       &        &         &       &        &       &             &            
+    \end{tabular}
+}
+    \caption{Análisis de las características de las librerías de RA sin marcadores}
+    \label{tab:my_label}
+\end{table}
+
+\noindent
