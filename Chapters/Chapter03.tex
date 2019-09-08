@@ -1,75 +1,201 @@
 
 \chapter{Comparación y análisis de las librerías}
 
+El análisis de las librerías se estructurará en los puntos que se describen a continuación:
+\begin{itemize}
+\item Calidad de la documentación y primeros pasos: en este punto evaluaremos la dificultad para realizar una aplicación básica con cada librería, desde el momento en el que se descarga el SDK, hasta que se construye la APK. 
+\item Evaluación de las capacidades de la librería: en este apartado se tendrán en cuenta las funcionalidades, las tecnologías que soporta y el nivel personalización dentro de la App, es decir, hasta que nivel podemos usar la API que nos proporcionan.
+\item Conclusiones: gracias al estudio realizado estableceremos unas conclusiones sobre el uso de cada librería y decidiremos si nos facilita el desarrollo de alguna prueba de concepto.
+\end{itemize}
+
+
+Para realizar la evaluación de las capacidades y los límites de cada librería se realizará un test que consistirá en:
+\begin{itemize}
+\item Instanciar un objeto.
+\item Movernos alrededor de dicho objeto, para comprobar la estabilidad del punto de anclaje.
+\item Realizar movimientos bruscos y veloces para ver si pierde la referencia en algún momento.
+\item Hacer que pierda la referencia y comprobar el tiempo en el que vuelve a aparecer el objeto.
+\item Alejarnos del objeto y ver hasta que distancia sigue funcionando.
+\item Comprobar cómo se comportan las librerías con diferentes intensidades de luz.
+\end{itemize}
+
 \section{Wikitude}
 
 \subsection{Calidad de la documentación y primeros pasos}
 \subsection{Evaluación de las capacidades de la librería}
+\textbf{Condiciones de luz mínimas:}\\
+Esta prueba está recogida en el repositorio:\\
+La sala está únicamente iluminada por un haz de luz perteneciente a una habitación situada al otro lado del pasillo.\\
+
+Consigue instanciar el objeto dentro de un plano y posee buena iluminación. El plano falla cuando empezamos a movernos haciendo un giro de 45º no esperado, si estamos encima del modelo se pierde, si damos la vuelta completa sigue perdido. Necesitamos volver a referenciarlo por que no se recupera. La calidad del modelo y su textura es óptima para las condiciones de luz que posee. Se pierde la referencia fácilmente ante los giros. Cuando se realiza un movimiento de cámara en el que el punto de anclaje sale del \textit{frustrum}\footnote{Región cerrada del espacio que delimita los objetos que aparecen representados en la pantalla.}  y más tarde se vuelve a enfocar a él, tarda un segundo en volver a posicionar el plano y su objeto. En esta primera prueba no hemos conseguido que pierda la referencia por distancia, se repetirá con un escenario más amplio.
+
+\begin{table}[H]
+\resizebox{\textwidth}{!} {
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+    \hline
+         & Luz Intensa & Luz Ambiente & Luz Mínimas \\
+         \hline
+        Distancia máxima de captura (m) & & &\\
+        \hline
+        Estabilidad del punto de anclaje & & &\\
+        \hline
+        Resistencia a movimientos & & & \\
+        \hline
+        Estimación de iluminación & & & \\
+        \hline
+        Tiempo de recuperación del ancla & & & \\
+      \hline
+    \end{tabular}
+  }
+    \caption{Análisis Wikitude}
+    \label{tab:TWikitude}
+\end{table}
+
 \subsection{Conclusiones}
 
 \section{ARKit}
 \subsection{Calidad de la documentación y primeros pasos}
-\lipsum[1]
+
 \subsection{Evaluación de las capacidades de la librería}
-\lipsum[1]
+
 \subsection{Conclusiones}
-\lipsum[1]
 
 \section{ARCore}
 \subsection{Calidad de la documentación y primeros pasos}
-\lipsum[1]
+
 \subsection{Evaluación de las capacidades de la librería}
-\lipsum[1]
+\subsubsection{Condiciones de luz mínimas:}\\
+\textbf{Esta prueba está recogida en el repositorio:}\\
+La sala está únicamente iluminada por un haz de luz perteneciente a una habitación situada al otro lado del pasillo y una pequeña iluminación frontal.\\
+Necesita más luz(2) para reconocer el plano. La estimación de la iluminación es excelente como podemos ver a lo largo de la prueba. Al realizar un movimiento alrededor del modelo no se pierde ni se desestabiliza en ningún momento. Al posicionar el teléfono sobre el modelo sigue estable. Las texturas del modelo se ven de manera nítida y realista. En la prueba de resistencia a movimientos bruscos no desaparece nunca ni vibra la imagen dando unos resultados óptimos. Cuando se realiza un movimiento en el que el modelo desaparece del campo de visión este no llega a desaparecer nunca del entorno virtual por lo que al volver a enfocar al punto de anclaje la transición es limpia.
+
+
+\begin{table}[H]
+\resizebox{\textwidth}{!} {
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+    \hline
+         & Luz Intensa & Luz Ambiente & Luz Mínimas \\
+         \hline
+        Distancia máxima de captura (m) & & &\\
+        \hline
+        Estabilidad del punto de anclaje & & &\\
+        \hline
+        Resistencia a movimientos & & & \\
+        \hline
+        Estimación de iluminación & & & \\
+        \hline
+        Tiempo de recuperación del ancla & & & \\
+      \hline
+    \end{tabular}
+  }
+    \caption{Análisis ARCore}
+    \label{tab:TARCore}
+\end{table}
 \subsection{Conclusiones}
-\lipsum[1]
 
 \section{Vuforia}
 \subsection{Calidad de la documentación y primeros pasos}
-\lipsum[1]
+
 \subsection{Evaluación de las capacidades de la librería}
-\lipsum[1]
+
 \subsection{Conclusiones}
-\lipsum[1]
+
 
 \section{Kudan}
 \subsection{Calidad de la documentación y primeros pasos}
-\lipsum[1]
+
 \subsection{Evaluación de las capacidades de la librería}
-\lipsum[1]
+\subsubsection{Condiciones de luz mínimas:}\\
+\textbf{Esta prueba está recogida en el repositorio:}\\
+La sala está únicamente iluminada por un haz de luz perteneciente a una habitación situada al otro lado del pasillo.\\
+
+El nivel de luz de la sala no supone ningún problema para posicionar el modelo. La calidad de las texturas del objeto son malas, además no existe ninguna estimación de iluminación sobre el modelo. El anclaje alrededor del objeto con movimientos suaves es aceptable pero en el momento que nos acercamos se pierde y hay que volver a referenciarlo. La estabilidad del objeto cuando nos movemos en sus proximidades es muy mala, cambiando de tamaño sin sentido aparente. La distancia máxima de captura es de siete metros aproximadamente. La capacidad de soportar movimientos bruscos es mala, pierde totalmente la posición del ancla con resultados incorrectos e incluso a veces pierde la referencia del todo. Al sacarlo del campo de visión no lo posiciona en el mismo punto donde estaba, llegando a perder en ocasiones el punto de referencia.
+
+\begin{table}[H]
+\resizebox{\textwidth}{!} {
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+    \hline
+         & Luz Intensa & Luz Ambiente & Luz Mínimas \\
+         \hline
+        Distancia máxima de captura (m) & & &\\
+        \hline
+        Estabilidad del punto de anclaje & & &\\
+        \hline
+        Resistencia a movimientos & & & \\
+        \hline
+        Estimación de iluminación & & & \\
+        \hline
+        Tiempo de recuperación del ancla & & & \\
+      \hline
+    \end{tabular}
+  }
+    \caption{Análisis Kudan}
+    \label{tab:TKudan}
+\end{table}
 \subsection{Conclusiones}
-\lipsum[1]
+
 
 \section{MaxST}
 \subsection{Calidad de la documentación y primeros pasos}
-\lipsum[1]
+
 \subsection{Evaluación de las capacidades de la librería}
-\lipsum[1]
+\subsubsection{Condiciones de luz mínimas:}\\
+\textbf{Esta prueba está recogida en el repositorio:}\\
+La sala está únicamente iluminada por un haz de luz perteneciente a una habitación situada al otro lado del pasillo.\\
+
+El nivel de luz de la sala no supone ningún problema para posicionar el modelo. La calidad de las texturas del objeto son notables, no existe ninguna estimación de iluminación sobre el modelo. El anclaje alrededor del objeto con movimientos suaves es aceptable pero en el momento que nos acercamos se pierde y no se llega a recuperar el punto teniendo que volver a referenciarlo.  No somos capaces de dar la vuelta al modelo completo sin perderlo. No conseguimos perderlo con la distancia. La capacidad de soportar movimientos bruscos es mejorable ya que no desaparece el modelo, pero si pierde su referencia en el espacio moviéndolo a una posición diferente. Al sacarlo del campo de visión no lo posiciona de nuevo en la mayoría de las ocasiones. Sin embargo, cuando consigue mantenerlo, en la mayoría de ocasiones se desplaza del punto correcto y muy rara vez muestra la opción correcta.
+
+\begin{table}[H]
+\resizebox{\textwidth}{!} {
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+    \hline
+         & Luz Intensa & Luz Ambiente & Luz Mínimas \\
+         \hline
+        Distancia máxima de captura (m) & & &\\
+        \hline
+        Estabilidad del punto de anclaje & & &\\
+        \hline
+        Resistencia a movimientos & & & \\
+        \hline
+        Estimación de iluminación & & & \\
+        \hline
+        Tiempo de recuperación del ancla & & & \\
+      \hline
+    \end{tabular}
+  }
+    \caption{Análisis Maxst}
+    \label{tab:TMaxst}
+\end{table}
 \subsection{Conclusiones}
-\lipsum[1]
+
 
 \section{8th Wall XR}
 \subsection{Calidad de la documentación y primeros pasos}
-\lipsum[1]
+
 \subsection{Evaluación de las capacidades de la librería}
-\lipsum[1]
+
 \subsection{Conclusiones}
-\lipsum[1]
+
 
 \section{Easy AR}
 \subsection{Calidad de la documentación y primeros pasos}
-\lipsum[1]
+
 \subsection{Evaluación de las capacidades de la librería}
-\lipsum[1]
+
 \subsection{Conclusiones}
-\lipsum[1]
+
 
 \section{ARFoundation}
 \subsection{Calidad de la documentación y primeros pasos}
-\lipsum[1]
+
 \subsection{Evaluación de las capacidades de la librería}
-\lipsum[1]
+
 \subsection{Conclusiones}
-\lipsum[1]
+
 
 \section{ARToolKit}
 Información de la librería, desarrollo de HolaMundo y conclusiones
@@ -100,7 +226,7 @@ A continuación, hay una tabla en el que se puede comparar rápidamente las func
 \begin{table}[ht]
 \resizebox{\textwidth}{!} {
     \centering
-    \begin{tabular}{m{2cm}|m{2.8cm}|m{2.8cm}|m{2cm}|c|m{2.8cm}|m{2cm}|m{2cm}}
+    \begin{tabular}{m{2cm}|m{2.8cm}| m{2.8cm}|m{2cm}|c|m{2.8cm}|m{2cm}|m{2cm}}
         SDK & Reconocimiento 2D & Reconocimiento 3D & Detección de planos & SLAM & Reconocimiento de rostro & Estimación de luces & Otras \\
 \hline
 \textbf{Wikitude} & \checkmark & \checkmark & \checkmark & \checkmark & - & \checkmark & Geo AR \\
