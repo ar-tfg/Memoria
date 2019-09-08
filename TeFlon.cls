@@ -547,12 +547,25 @@ V:\textsc{1.3 Overleaf V2 with pdfLaTeX, margin 1in, NO-bib}
     \addtocontents{toc}{\hfill \textbf{Página} \par}
 \tableofcontents
 }
+\usepackage{comment}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Estilo de la bibliografia
+\usepackage[
+backend=biber,
+style=numeric,
+sorting=ynt
+]{biblatex}
+\addbibresource{biblio.bib}
+
 \newcommand*{\biblioTFG}[1]{
 \newpage
 \addcontentsline{toc}{chapter}{\protect\numberline{#1}Bibliografía y enlaces de referencia}%0
-\bibliographystyle{unsrt}
-\bibliography{biblio}
+\printbibliography
 }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \newcommand*{\indiceFiguras}[0]{\listoffigures}
 \newcommand*{\indiceTablas}[0]{\listoftables}
 \newcommand*{\licenciaTFG}[3]{

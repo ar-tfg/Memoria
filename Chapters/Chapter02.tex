@@ -13,6 +13,9 @@ Se llama realidad aumentada al conjunto de tecnologías que permite a un usuario
 En la década de 1950, surgió por primera vez el término realidad aumentada cuando Morton Heilig, un cinematógrafo, pensó en un prototipo de un cine que estimulara todos los sentidos del ser humano de manera efectiva. Años más tarde, concretamente en el 1962, Heilig construyó dicho prototipo, llamado Sensorama, se trataba de un cine inmersivo y novedoso que incluía funcionalidades como 3D, visión angular (actualmente conocido como IMAX), vídeo en color, sonido en estéreo, además de estimular otros sentidos con aromas, viento, y vibraciones como podemos observar en la figura \ref{fig:Sensorama}.\\
 \\
 \\
+\\
+\\
+\\
 
 \begin{wrapfigure}{r}{0.5\textwidth}
     \centering
@@ -22,6 +25,8 @@ En la década de 1950, surgió por primera vez el término realidad aumentada cu
 \end{wrapfigure}
 
 En el 1968, Ivan Sutherland, inventó el HMD (\textit{Human Mounted Display}), siendo así, el primer sistema que permitía ver las aristas de sencillos objetos 3D (\textit{Wireframe}) en tiempo real. Empleaba dos sistemas de \textit{tracking} para calcular el registro de la cámara; uno mecánico y otro basado en ultrasonidos.\\
+\\
+\\
 \\
 \\
 \\
@@ -72,8 +77,12 @@ En 2008 se creó Wikitude, una aplicación que utilizaba el GPS para mostrarte i
 \\
 \\
 
-Un año más tarde, en 2009, desarrolló el videojuego ARhrrrr del género shooter, el primer videojuego en realidad aumentada para smartphone con contenido 3D de alta calidad. Se generaba un mapa 3D sobre un marcador, y el objetivo era rescatar a los humanos de la ciudad y matar a los zombies. 
-
+Un año más tarde, en 2009, desarrolló el videojuego ARrrrr del género shooter, el primer videojuego en realidad aumentada para smartphone con contenido 3D de alta calidad. Se generaba un mapa 3D sobre un marcador, y el objetivo era rescatar a los humanos de la ciudad y matar a los zombies. 
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=0.5\linewidth]{Images/Arrrr.jpeg}
+        \caption{ARrrrrr! Example}
+  \end{figure}
 En el mismo año, el estudio español Novorama crea el videojuego de PSP (Portable PlayStation) Invizimals, un éxito mundial, vendiendo más de 8 millones de copias en todo el mundo en el primer trimestre de 2010. Este juego usaba la cámara addicional que se conectaba a la PSP, y con marcadores se registraba la posición del micro.
 
 \subsection{Project Tango}
@@ -108,7 +117,7 @@ Según David Marimón\cite{TrackingThesis}, fundador y director general de Catch
 Las aproximaciones del tipo Bottom-Up pretenden obtener la posición del dispositivo basándose en la información que recibe a través de la cámara.
 Para este método de tracking la posición y orientación se calculan en base a la obtención de características geométricas de objetos y sus relaciones. Dependiendo de los datos procesados, el seguimiento puede ser con marcas o sin ellas.\\
 El tracking basado en marcas era el método más extendido en los inicios de la realidad aumentada. Hace sus cálculos con la ayuda de marcadores físicos que en su mayoría presentan un gran contraste entre blanco y negro para que los sensores puedan percibirlos con mayor facilidad. Existen también marcadores que usan códigos de colores y diferentes formas geométricas, aunque después de ser sometidos a prueba se comprobó que los más sólidos eran los marcadores cuadrados. Por otra parte, este método es especialmente sensible a la oclusión, ya que cuando se pierde el marcador, es imposible calcular la posición del dispositivo. Por este motivo, se han diseñado marcadores que puedan hacer frente a este problema con imágenes en escala de grises que completan marcas que no son visibles.\\
-Paralelamente, el tracking sin marcas se basa únicamente en las características intrínsecas de la escena, estructuras físicas de fácil percepción como las esquinas de una mesa.\\
+Paralelamente, el \textit{tracking} sin marcas se basa únicamente en las características intrínsecas de la escena, estructuras físicas de fácil percepción como las esquinas de una mesa.\\
 Existen técnicas en este campo que utilizan información sobre superficies planas detectadas en el campo de visión, siendo su principal inconveniente su alto coste computacional (actualmente este tipo de localización no lo pueden llevar a cabo todos los dispositivos del mercado).\\
 Por otra parte, hay técnicas basadas en modelos. No están considerados marcadores porque son parte del medio natural, pero al igual que con éstos los cálculos se basan en el reconocimiento de los objetos que existen y que el programa está preparado para procesar.\\
 Finalmente, existen métodos que actúan en escenarios donde no se es capaz de obtener planos o modelos. Se suelen emplear restricciones epipolares de las cámaras en movimiento. Sin embargo, esta técnica no es utilizada habitualmente por sus altos requisitos de cómputo.\\
