@@ -18,188 +18,371 @@ Para realizar la evaluación de las capacidades y los límites de cada librería
 \item Alejarnos del objeto y ver hasta que distancia sigue funcionando.
 \item Comprobar cómo se comportan las librerías con diferentes intensidades de luz.
 \end{itemize}
-
+Los videos se encuentran aqui: https://www.youtube.com/playlist?list=PLqQgTAUiabc8AQrcc48Jdglnytus9IoXe
+\clearpage
 \section{Wikitude}
 
 \subsection{Calidad de la documentación y primeros pasos}
+La experiencia al crear una aplicación usando Wikitude es buena. Te guían desde el momento en el que entras a la web, a descargar el SDK que necesites, eso sí, hace falta registrarse y para que funcione la aplicación hay que descargar una licencia, la cual hay que introducir en el componente Wikitude Camera que trae el paquete. Todos estos pasos vienen documentados, y para facilitar el proceso de prueba, traen varias escenas montadas en las que se pueden probar diferentes tipos de tecnologías. Para hacer funcionar todas las escenas, es necesario que el \textit{Package Name} de la aplicación sea ``com.wikitude.unityexample'', ya que el SDK está protegido de esta manera. La documentación de la API es muy completa y está muy bien estructurada.\cite{WikitudeDoc}
 \subsection{Evaluación de las capacidades de la librería}
 \textbf{Condiciones de luz mínimas:}\\
-Esta prueba está recogida en el repositorio:\\
+\textbf{Esta prueba está recogida en el repositorio:}\\
 La sala está únicamente iluminada por un haz de luz perteneciente a una habitación situada al otro lado del pasillo.\\
 
-Consigue instanciar el objeto dentro de un plano y posee buena iluminación. El plano falla cuando empezamos a movernos haciendo un giro de 45º no esperado, si estamos encima del modelo se pierde, si damos la vuelta completa sigue perdido. Necesitamos volver a referenciarlo por que no se recupera. La calidad del modelo y su textura es óptima para las condiciones de luz que posee. Se pierde la referencia fácilmente ante los giros. Cuando se realiza un movimiento de cámara en el que el punto de anclaje sale del \textit{frustrum}\footnote{Región cerrada del espacio que delimita los objetos que aparecen representados en la pantalla.}  y más tarde se vuelve a enfocar a él, tarda un segundo en volver a posicionar el plano y su objeto. En esta primera prueba no hemos conseguido que pierda la referencia por distancia, se repetirá con un escenario más amplio.
+Consigue instanciar el objeto dentro de un plano y posee buena iluminación. El plano falla cuando empezamos a movernos haciendo un giro de 45º no esperado, si estamos encima del modelo se pierde, si damos la vuelta completa sigue perdido. Necesitamos volver a referenciarlo por que no se recupera. La calidad del modelo y su textura es óptima para las condiciones de luz que posee. Se pierde la referencia fácilmente ante los giros. Cuando se realiza un movimiento de cámara en el que el punto de anclaje sale del \textit{frustrum}\footnote{Región cerrada del espacio que delimita los objetos que aparecen representados en la pantalla.}  y más tarde se vuelve a enfocar a él, tarda un segundo en volver a posicionar el plano y su objeto. En esta primera prueba no hemos conseguido que pierda la referencia por distancia, se repetirá con un escenario más amplio. Hace estimaciones con oclusión desapareciendo con la pared.\\
+
+\textbf{Condiciones de luz ambiente:}
+
+\textbf{Esta prueba está recogida en el repositorio:}\\
+
+La sala está únicamente iluminada por dos ventanas a la luz de la tarde.\\
+
+Consigue instanciar el objeto dentro de un plano y posee buena iluminación. El plano falla cuando empezamos a movernos haciendo de nuevo un giro de 45º no esperado, si estamos encima del modelo se pierde pero en este caso se recupera con cierta facilidad. Podemos acercarnos bastante manteniendo el nivel de detalle. La calidad del modelo y su textura es óptima para las condiciones de luz que posee. Se pierde la referencia fácilmente ante los giros. Cuando se realiza un movimiento de cámara en el que el punto de anclaje sale del \textit{frustrum} y más tarde se vuelve a enfocar a él, tarda menos de un segundo en volver a posicionar el plano y su objeto. En esta primera prueba no hemos conseguido que pierda la referencia por distancia. Hace estimaciones con oclusión desapareciendo con la pared.
 
 \begin{table}[H]
-\resizebox{\textwidth}{!} {
     \centering
-    \begin{tabular}{|c|c|c|c|}
+    \begin{tabular}{|l|c|c|}
     \hline
-         & Luz Intensa & Luz Ambiente & Luz Mínimas \\
+          & Luz Ambiente & Luz Mínimas \\
          \hline
-        Distancia máxima de captura (m) & & &\\
+        Distancia máxima de captura (m)  & 10&10\\
         \hline
-        Estabilidad del punto de anclaje & & &\\
+        Estabilidad del punto de anclaje  & 4&5\\
         \hline
-        Resistencia a movimientos & & & \\
+        Resistencia a movimientos  & 2&2 \\
         \hline
-        Estimación de iluminación & & & \\
+        Estimación de iluminación  & 8&8 \\
         \hline
-        Tiempo de recuperación del ancla & & & \\
+        Tiempo de recuperación del ancla  & 8&9 \\
       \hline
     \end{tabular}
-  }
     \caption{Análisis Wikitude}
     \label{tab:TWikitude}
 \end{table}
 
 \subsection{Conclusiones}
 
+\clearpage
 \section{ARKit}
 \subsection{Calidad de la documentación y primeros pasos}
 
 \subsection{Evaluación de las capacidades de la librería}
 
-\subsection{Conclusiones}
+\subsubsection{Condiciones de luz mínimas:}
 
+\textbf{Esta prueba está recogida en el repositorio:}
+
+La sala está únicamente iluminada por un haz de luz perteneciente a una habitación situada al otro lado del pasillo y una pequeña iluminación frontal.
+
+Necesita significativamente más luz(2) para reconocer el plano, en parte debido al dispositivo. La estimación de la iluminación es excelente como podemos ver a lo largo de la prueba. Al realizar un movimiento alrededor del modelo no se pierde ni se desestabiliza en ningún momento. Al posicionar el teléfono sobre el modelo sigue estable. Las texturas del modelo se ven de manera nítida y realista. En la prueba de resistencia a movimientos bruscos se desplaza el plano en ocasiones recuperándose en un breve periodo de tiempo (menor a un segundo). Cuando se realiza un movimiento en el que el modelo desaparece del campo de visión este no llega a desaparecer nunca del entorno virtual por lo que al volver a enfocar al punto de anclaje la transición es limpia.
+
+\subsubsection{Condiciones de luz ambiente:\\}
+
+\textbf{Esta prueba está recogida en el repositorio:}\\
+La sala está únicamente iluminada por dos ventanas a la luz de la tarde.\\
+Reconoce los planos de casi instantáneamente, por lo que nos permite posicionar el objeto sin esperas. La calidad de las texturas son muy buenas y la estimación de luz es impresionante, la luz cambia mientras rodeamos al modelo, estando mas oscuro cuando nos encontramos a contraluz, e iluminado nos situamos entre la luz entrante y el modelo. La estabilidad del objeto es sobresaliente, nos permite rodear el objeto y acercarnos todo lo posible sin que se mueva. La resistencia a movimientos bruscos funciona muy bien, situando al modelo siempre en su punto origen. Lo mismo ocurre en la prueba de sacar el punto de anclaje del campo de visión de la cámara,el dragón nunca desaparece, por lo que al volver a enfocar el punto de partida, vemos una transición muy natural.
+
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|l|c|c|}
+    \hline
+          & Luz Ambiente & Luz Mínimas \\
+         \hline
+        Distancia máxima de captura (m)  & &\\
+        \hline
+        Estabilidad del punto de anclaje  & &\\
+        \hline
+        Resistencia a movimientos  & & \\
+        \hline
+        Estimación de iluminación  & & \\
+        \hline
+        Tiempo de recuperación del ancla  & & \\
+      \hline
+    \end{tabular}
+    \caption{Análisis ARKit}
+    \label{tab:TARKit}
+\end{table}
+
+\subsection{Conclusiones}
+Como hemos comprobado anteriormente, en unas condiciones de luz mínimas el trabajo de esta librería ha sido casi excelente. Su único fallo era la resistencia a movimientos bruscos, la cual se arregla cuando las condiciones lumínicas son óptimas, pudiendo disfrutar de una experiencia perfecta. Si ya con la luz mínima era casi perfecta, con unas condiciones buenas de luz, estamos ante una de las mejores opciones a la hora de crear una experiencia de realidad aumentada. Cabe destacar que ARKit sólo está soportado en dispositivos iOS, por lo que se puede controlar mucho más el abanico de dispositivos en el que se va a usar la aplicación. Lo cual es útil a la hora de asegurar el correcto funcionamiento de las aplicaciones.
+
+\clearpage
 \section{ARCore}
 \subsection{Calidad de la documentación y primeros pasos}
-
+Hacer funcionar una aplicación con ARCore es tan fácil como descargar el SDK desde su Github oficial \cite{Github_Google}, añadir una de las escenas de ejemplo a la build, seleccionar dentro de Unity3D la opción de ``Player Settings -> XR Settings -> ARCore Supported''.Para probar la realidad aumentada con ARCore no hace falta registrarse ni obtener ninguna licencia para que funcione, exceptuando el uso de los \textit{Cloud Anchors}, en el siguiente capítulo explicaremos cómo activarlos. La documentación de los pasos a seguir y de la API es bastante completa, además es de que al ser una de las librerías más usadas en la comunidad, hay muchos tutoriales en el que puedes aprender sobre ella. Para facilitar el desarrollo de aplicaciones con ARCore, Google ha desarrollado una aplicación \textit{ARCore Instant Preview}, la cual se engancha vía USB o Wifi con el editor de Unity3D, y permite probar las aplicaciones en el teléfono sin necesidad de generar una APK.
 \subsection{Evaluación de las capacidades de la librería}
 \subsubsection{Condiciones de luz mínimas:}\\
 \textbf{Esta prueba está recogida en el repositorio:}\\
 La sala está únicamente iluminada por un haz de luz perteneciente a una habitación situada al otro lado del pasillo y una pequeña iluminación frontal.\\
+
 Necesita más luz(2) para reconocer el plano. La estimación de la iluminación es excelente como podemos ver a lo largo de la prueba. Al realizar un movimiento alrededor del modelo no se pierde ni se desestabiliza en ningún momento. Al posicionar el teléfono sobre el modelo sigue estable. Las texturas del modelo se ven de manera nítida y realista. En la prueba de resistencia a movimientos bruscos no desaparece nunca ni vibra la imagen dando unos resultados óptimos. Cuando se realiza un movimiento en el que el modelo desaparece del campo de visión este no llega a desaparecer nunca del entorno virtual por lo que al volver a enfocar al punto de anclaje la transición es limpia.
 
+\subsubsection{Condiciones de luz ambiente:}
+
+\textbf{Esta prueba está recogida en el repositorio:}
+
+En este caso reconoce los planos al instante gracias a las condiciones lumínicas. La estimación de la iluminación es sorprendente, ya que mientras giramos alrededor del modelo la luz reacciona a nuestros movimientos. Podemos observar que al posicionarnos en contraluz el objeto está menos iluminado que al comienzo de la prueba donde la luz era directa. En el segundo caso creemos que la intensidad de la luz estimada es un poco excesiva. Los movimientos de cámara se mantienen como en la primera prueba teniendo un resultado perfecto.
 
 \begin{table}[H]
-\resizebox{\textwidth}{!} {
     \centering
-    \begin{tabular}{|c|c|c|c|}
+    \begin{tabular}{|l|c|c|}
     \hline
-         & Luz Intensa & Luz Ambiente & Luz Mínimas \\
+          & Luz Ambiente & Luz Mínimas \\
          \hline
-        Distancia máxima de captura (m) & & &\\
+        Distancia máxima de captura (m)  &10 &10\\
         \hline
-        Estabilidad del punto de anclaje & & &\\
+        Estabilidad del punto de anclaje  &10 &10\\
         \hline
-        Resistencia a movimientos & & & \\
+        Resistencia a movimientos  &10 &10 \\
         \hline
-        Estimación de iluminación & & & \\
+        Estimación de iluminación  &8 &9 \\
         \hline
-        Tiempo de recuperación del ancla & & & \\
+        Tiempo de recuperación del ancla  &10 &10 \\
       \hline
     \end{tabular}
-  }
     \caption{Análisis ARCore}
     \label{tab:TARCore}
 \end{table}
 \subsection{Conclusiones}
+Los resultados obtenidos con ARCore han sido magníficos, el único punto flojo es cuando las condiciones de luz son muy bajas, porque no es capaz de detectar la superficie. Quitando esa situación, la experiencia obtenida es muy buena, porque es muy estable y además la estimación de luz funciona casi a la perfección. Como hemos comentado antes, hay situaciones en las que es exagerado el brillo que obtiene. A pesar de sus resultados, también tiene una parte mala, su lista de dispositivos soportados \cite{ARCoreList}. Aunque con el paso del tiempo esa lista va creciendo y los móviles nuevos cada vez son más potentes, aun queda mucho porcentaje de dispositivos que no están soportados, por lo que el público al que puede llegar una aplicación de realidad aumentada usando ARCore es limitado.
 
+\clearpage
 \section{Vuforia}
 \subsection{Calidad de la documentación y primeros pasos}
 
 \subsection{Evaluación de las capacidades de la librería}
+\subsubsection{Condiciones de luz mínimas:}
 
+\textbf{Esta prueba está recogida en el repositorio:}
+
+La sala está únicamente iluminada por un haz de luz perteneciente a una habitación situada al otro lado del pasillo y una iluminación frontal.\\
+
+El nivel de luz de la sala no supone ningún problema para posicionar el modelo. La calidad de las texturas del objeto son malas, además no existe ninguna estimación de iluminación sobre el modelo. El anclaje alrededor del objeto con movimientos suaves es malo ya que se mueve con nosotros. La estabilidad del objeto cuando nos movemos en sus proximidades es mala ya que el objeto cambia de posición a medida que nos acercamos. No conseguimos perder el objeto con la distancia. La capacidad de soportar movimientos bruscos es buena, ya que no pierde la posición del ancla. Al sacarlo del campo de visión lo mantiene en su posición en todo momento.
+
+\subsubsection{Condiciones de luz ambiente:\\}
+
+\textbf{Esta prueba está recogida en el repositorio:}
+Después de mejorar las condiciones de luz se mantienen los problemas de estimación de luz. La visualización del modelo renderiza las texturas de manera muy pobre siendo muy poco realista. La estabilidad del objeto mejora ya que podemos girar alrededor del objeto sin perder la referencia, permitiéndonos acercarnos en esta ocasión. Se mantiene la capacidad de soportar movimientos bruscos y la robustos en cuanto al campo de visión.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|l|c|c|}
+    \hline
+          & Luz Ambiente & Luz Mínimas \\
+         \hline
+        Distancia máxima de captura (m)  & &\\
+        \hline
+        Estabilidad del punto de anclaje  & &\\
+        \hline
+        Resistencia a movimientos  & & \\
+        \hline
+        Estimación de iluminación  & & \\
+        \hline
+        Tiempo de recuperación del ancla  & & \\
+      \hline
+    \end{tabular}
+    \caption{Análisis Vuforia}
+    \label{tab:TVuforia}
+\end{table}
 \subsection{Conclusiones}
 
-
+\clearpage
 \section{Kudan}
 \subsection{Calidad de la documentación y primeros pasos}
-
-\subsection{Evaluación de las capacidades de la librería}
-\subsubsection{Condiciones de luz mínimas:}\\
-\textbf{Esta prueba está recogida en el repositorio:}\\
+Los primeros pasos con Kudan no son tan gratificantes en comparación a sus competidores. Empezando por la descarga del SDK, ésta ni si quiera se encuentra en la página oficial \cite{Kudan_Official}, si no que se encuentra en XLSoft \cite{Kudan}. Una vez metido el SDK en Unity, en las carpetas vienen escenas de ejemplo, en las que podemos ver como se monta una aplicación con Kudan. La librería está protegida por \textit{Package Name}, contactando con los desarrolladores de Kudan puedes obtener una licencia para cualquier \textit{Package Name}, sin embargo, proporcionan una general con la que podemos desarrollar ``com.xlsoft.kudanar''. \cite{Kudan_License}La documentación para los primeros pasos es aceptable, pero sobre el SDK y la API no hay documentación, únicamente los comentarios en los scripts. Una vez instalada la aplicación en el teléfono, seguramente no funcione ya que la aplicación no pide los permisos para usar la cámara, y sin ellos Kudan no puede inicializarse, para arreglar este error, hace falta añadir en algún script esta línea de código ´´Permision.RequestUserPermission(Permission.Camera)'', que se encuentra en el paquete ``UnityEngine.Android''.
+\subsection{Evaluación de las capacidades de la librería}\\
+\subsubsection{Condiciones de luz mínimas:}
+\textbf{Esta prueba está recogida en el repositorio:}
 La sala está únicamente iluminada por un haz de luz perteneciente a una habitación situada al otro lado del pasillo.\\
 
 El nivel de luz de la sala no supone ningún problema para posicionar el modelo. La calidad de las texturas del objeto son malas, además no existe ninguna estimación de iluminación sobre el modelo. El anclaje alrededor del objeto con movimientos suaves es aceptable pero en el momento que nos acercamos se pierde y hay que volver a referenciarlo. La estabilidad del objeto cuando nos movemos en sus proximidades es muy mala, cambiando de tamaño sin sentido aparente. La distancia máxima de captura es de siete metros aproximadamente. La capacidad de soportar movimientos bruscos es mala, pierde totalmente la posición del ancla con resultados incorrectos e incluso a veces pierde la referencia del todo. Al sacarlo del campo de visión no lo posiciona en el mismo punto donde estaba, llegando a perder en ocasiones el punto de referencia.
 
+\subsubsection{Condiciones de luz ambiente:}
+
+\textbf{Esta prueba está recogida en el repositorio:} 
+
+Gracias a las condiciones de luz la estabilidad del objeto en la escena mejora sustancialmente, pudiendo dar la vuelta casi perfecta al objeto sin problemas, exceptuando la posición cenital que genera desestabilización breve en el objeto. Se mantiene la distancia máxima de siete metros. Además en esta ocasión la resistencia ante movimientos bruscos mejora considerablemente, sin llegar a ser correcta ya que pierde la referencia en una ocasión. En el caso del campo de visión recupera el objeto de manera más óptima sin llegar a volver a posicionar con precisión el objeto.
+
 \begin{table}[H]
-\resizebox{\textwidth}{!} {
     \centering
-    \begin{tabular}{|c|c|c|c|}
+    \begin{tabular}{|l|c|c|}
     \hline
-         & Luz Intensa & Luz Ambiente & Luz Mínimas \\
+          & Luz Ambiente & Luz Mínimas \\
          \hline
-        Distancia máxima de captura (m) & & &\\
+        Distancia máxima de captura (m)  & &\\
         \hline
-        Estabilidad del punto de anclaje & & &\\
+        Estabilidad del punto de anclaje  &3 &7\\
         \hline
-        Resistencia a movimientos & & & \\
+        Resistencia a movimientos  &2 &7 \\
         \hline
-        Estimación de iluminación & & & \\
+        Estimación de iluminación  &0 &0 \\
         \hline
-        Tiempo de recuperación del ancla & & & \\
+        Tiempo de recuperación del ancla  & & \\
       \hline
     \end{tabular}
-  }
+  
     \caption{Análisis Kudan}
     \label{tab:TKudan}
 \end{table}
 \subsection{Conclusiones}
-
-
+En este caso
+\clearpage
 \section{MaxST}
 \subsection{Calidad de la documentación y primeros pasos}
 
 \subsection{Evaluación de las capacidades de la librería}
-\subsubsection{Condiciones de luz mínimas:}\\
-\textbf{Esta prueba está recogida en el repositorio:}\\
+\subsubsection{Condiciones de luz mínimas:}
+\textbf{Esta prueba está recogida en el repositorio:}
 La sala está únicamente iluminada por un haz de luz perteneciente a una habitación situada al otro lado del pasillo.\\
 
 El nivel de luz de la sala no supone ningún problema para posicionar el modelo. La calidad de las texturas del objeto son notables, no existe ninguna estimación de iluminación sobre el modelo. El anclaje alrededor del objeto con movimientos suaves es aceptable pero en el momento que nos acercamos se pierde y no se llega a recuperar el punto teniendo que volver a referenciarlo.  No somos capaces de dar la vuelta al modelo completo sin perderlo. No conseguimos perderlo con la distancia. La capacidad de soportar movimientos bruscos es mejorable ya que no desaparece el modelo, pero si pierde su referencia en el espacio moviéndolo a una posición diferente. Al sacarlo del campo de visión no lo posiciona de nuevo en la mayoría de las ocasiones. Sin embargo, cuando consigue mantenerlo, en la mayoría de ocasiones se desplaza del punto correcto y muy rara vez muestra la opción correcta.
 
+\subsubsection{Condiciones de luz ambiente:}
+
+\textbf{Esta prueba está recogida en el repositorio:}
+
+La estabilidad a mejorado notablemente, permitiendo dar la vuelta completa. En ocasiones pierde la referencia y se desplaza el modelo un poco si nos acercamos demasiado. Si pierdes el punto de visión por ejemplo cruzando una pared desaparece el modelo, pero si volvemos al punto de partida es capaz de recuperar la referencia en aproximadamente 7 segundos. La resistencia a los giros bruscos ha mejorado muy considerablemente llegando a ser casi perfecta, a veces se desplaza en algún fotograma pero se reposiciona rápidamente. Al sacar el modelo del campo de visión de la cámara y luego volver a meterlo rinde mejor con el entorno iluminado, consiguiendo que esté bien posicionado, eso sí, a veces sigue desapareciendo y volviendo a aparecer, impidiendo así una transición limpia.
+
 \begin{table}[H]
-\resizebox{\textwidth}{!} {
     \centering
-    \begin{tabular}{|c|c|c|c|}
+    \begin{tabular}{|c|c|c|}
     \hline
-         & Luz Intensa & Luz Ambiente & Luz Mínimas \\
+          & Luz Ambiente & Luz Mínimas \\
          \hline
-        Distancia máxima de captura (m) & & &\\
+        Distancia máxima de captura (m)  & &\\
         \hline
-        Estabilidad del punto de anclaje & & &\\
+        Estabilidad del punto de anclaje  & &\\
         \hline
-        Resistencia a movimientos & & & \\
+        Resistencia a movimientos  & & \\
         \hline
-        Estimación de iluminación & & & \\
+        Estimación de iluminación  & & \\
         \hline
-        Tiempo de recuperación del ancla & & & \\
+        Tiempo de recuperación del ancla  & & \\
       \hline
     \end{tabular}
-  }
     \caption{Análisis Maxst}
     \label{tab:TMaxst}
 \end{table}
 \subsection{Conclusiones}
 
-
+\clearpage
 \section{8th Wall XR}
 \subsection{Calidad de la documentación y primeros pasos}
 
 \subsection{Evaluación de las capacidades de la librería}
+\subsubsection{Condiciones de luz mínimas:}\\
+\textbf{Esta prueba está recogida en el repositorio:}\\
+La sala está únicamente iluminada por un haz de luz perteneciente a una habitación situada al otro lado del pasillo.\\
 
+El nivel de luz de la sala supone un problema para posicionar el modelo con lo que aumentamos el nivel de luz. La calidad de las texturas del objeto son buenas, además posee estimación de iluminación sobre el modelo correcta y muy eficaz. El anclaje alrededor del objeto con movimientos suaves es muy buena pudiendo dar una vuelta sin problema y acercarnos para ver el detalle del dragón sin que desaparezca. No conseguimos perderlo con la distancia en ningún momento. La capacidad de soportar movimientos bruscos es muy resistente, nunca se pierde y su anclaje sigue en la posición correcta. Al sacarlo del campo de visión lo mantiene creando una transición suave. 
+
+\subsubsection{Condiciones de luz ambiente:}\\
+\textbf{Esta prueba está recogida en el repositorio:}\\
+
+La detección del plano es muy rápida. Mantiene y mejora la calidad de las texturas del objeto, así como la estimación de iluminación. El anclaje alrededor del objeto con movimientos suaves es muy buena pudiendo dar una vuelta sin problema y acercarnos para ver el detalle del dragón sin que desaparezca. No conseguimos perderlo con la distancia en ningún momento. La capacidad de soportar movimientos bruscos y movimientos fuera del campo de visión continua siendo muy resistente.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|}
+    \hline
+          & Luz Ambiente & Luz Mínimas \\
+         \hline
+        Distancia máxima de captura (m)  & &\\
+        \hline
+        Estabilidad del punto de anclaje  & &\\
+        \hline
+        Resistencia a movimientos  & & \\
+        \hline
+        Estimación de iluminación  & & \\
+        \hline
+        Tiempo de recuperación del ancla  & & \\
+      \hline
+    \end{tabular}
+    \caption{Análisis 8th Wall}
+    \label{tab:TMaxst}
+\end{table}
 \subsection{Conclusiones}
 
-
+\clearpage
 \section{Easy AR}
 \subsection{Calidad de la documentación y primeros pasos}
 
 \subsection{Evaluación de las capacidades de la librería}
+\subsubsection{Condiciones de luz mínimas:}\\
+\textbf{Esta prueba está recogida en el repositorio:}\\
+La sala está únicamente iluminada por un haz de luz perteneciente a una habitación situada al otro lado del pasillo.\\
 
+Coloca el modelo enfrente del usuario automáticamente sin buscar ningún plano de referencia. La estabilidad del objeto es muy mala ya que no nos podemos acercar porque el objeto también se mueve con el usuario, lo mismo ocurre al intentar dar la vuelta sobre él. La calidad de texturas es aceptable y no posee estimación de luz. La resistencia a movimientos bruscos es buena, nunca se deja de ver el objeto y se mantiene en su posición; lo mismo ocurre al sacarlo del campo de visión.
+
+\subsubsection{Condiciones de luz ambiente:}\\
+\textbf{Esta prueba está recogida en el repositorio:}\\
+Continúan apareciendo los problemas sin podernos acercar al modelo ni dar la vuelta correctamente. Además aparece un nuevo problema dónde la aplicación hace uso de muchos recursos generando un \textit{framerate}\footnote{Frecuencia a la cual un dispositivo muestra los fotogramas} muy bajo, por debajo de los 30 fotogramas por segundo. Mejora su capacidad de resistir movimientos bruscos. EL resultado de la prueba de sacar el objeto fuera del campo de visión también es bueno, es capaz de mantener la referencia de la posición.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|}
+    \hline
+          & Luz Ambiente & Luz Mínimas \\
+         \hline
+        Distancia máxima de captura (m)  & &\\
+        \hline
+        Estabilidad del punto de anclaje  & &\\
+        \hline
+        Resistencia a movimientos  & & \\
+        \hline
+        Estimación de iluminación  & & \\
+        \hline
+        Tiempo de recuperación del ancla  & & \\
+      \hline
+    \end{tabular}
+    \caption{Análisis EasyAR}
+    \label{tab:EasyAR}
+\end{table}
 \subsection{Conclusiones}
 
-
+\clearpage
 \section{ARFoundation}
 \subsection{Calidad de la documentación y primeros pasos}
 
 \subsection{Evaluación de las capacidades de la librería}
+\subsubsection{Condiciones de luz mínimas:}\\
+\textbf{Esta prueba está recogida en el repositorio:}\\
+La sala está únicamente iluminada por un haz de luz perteneciente a una habitación situada al otro lado del pasillo.\\
 
+El nivel de luz de la sala no supone ningún problema para posicionar el modelo y reconocer el plano. La calidad de las texturas del objeto son notables, además existe estimación de iluminación sobre el modelo pero no es del todo correcta. El anclaje alrededor del objeto con movimientos suaves es buena nos podemos acercar y alejar manteniendo el nivel de detalle. No conseguimos perderlo con la distancia. La capacidad de soportar movimientos bruscos es casi perfecta ya que no desaparece el modelo, pero a veces se mueve un poco recolocándose en un breve período de tiempo. Al sacarlo del campo de visión lo mantiene en su posición.
+
+\subsubsection{Condiciones de luz ambiente:}\\
+\textbf{Esta prueba está recogida en el repositorio:}\\
+
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|}
+    \hline
+          & Luz Ambiente & Luz Mínimas \\
+         \hline
+        Distancia máxima de captura (m)  & &\\
+        \hline
+        Estabilidad del punto de anclaje  & &\\
+        \hline
+        Resistencia a movimientos  & & \\
+        \hline
+        Estimación de iluminación  & & \\
+        \hline
+        Tiempo de recuperación del ancla  & & \\
+      \hline
+    \end{tabular}
+    \caption{Análisis ARFoundation}
+    \label{tab:ARFoundation}
+\end{table}
 \subsection{Conclusiones}
 
-
+\clearpage
 \section{ARToolKit}
 Información de la librería, desarrollo de HolaMundo y conclusiones
 En nuestros primeros pasos en el mundo de la realidad aumentada exploramos algunas librerías como ARToolKit, con el fin de familiarizarnos con el desarrollo de este tipo de aplicaciones.\\
+
 ARToolKit es una de las librerías de desarrollo pioneras en el ámbito que investigamos, disponible desde el año 2004 para descargar de manera gratuita y que cuenta con más de 160.000 descargas desde entonces. Se distribuyó para diversas plataformas como SGI IRIX (que dejó de utilizarse en 2006), Linux, MacOS y Windows y fue desarrollada originalmente por el Dr. Hirokazu Kato para posteriormente pasar a manos del Human Interface Technology Laboratory en la Universidad de Washington, la de Nueva Zelanda y ARToolworks.Inc en Seattle.\\
 
 Muchas librerías posteriores se han basado en el código de ésta para ampliar sus funcionalidades, dando lugar a algunas como ARTag (que promete mayor fiabilidad a la hora de procesar imágenes por su mejor manejo de la luz), FLARToolKit (consistente en un port en ActionScript 3), ARDesktop (que facilita la creación de interfaces) o Studierstube Tracker (que mejora sus características, pero deja de ser de código abierto).\\
@@ -214,11 +397,13 @@ Para el desarrollo de este “HolaMundo” con ARToolKit en Unity hemos seguido 
 
 Por otra parte, el objeto raíz de la escena incluye la luz direccional y la cámara, y además le añadimos el script AROrigin, que permite situar espacialmente la escena. La cámara, además de su script de cámara recibe un ARCamera para poder detectar los marcadores.\\
 
-Ahora creamos un objeto que llevará la información del marcador y le añadimos el componente ARMarker, que lleva el tag del marcador que hace las veces de identificador único. Este componente tiene dos tipos de patrones para identificar por defecto: hiro y kanji. En este caso utilizaremos el patrón “hiro”, que es el que consiste en un cuadrado negro simple.\\
+Ahora creamos un objeto que llevará la información del marcador y le añadimos el componente ARMarker, que lleva el tag del marcador que hace las veces de identificador único. Este componente tiene dos tipos de patrones para identificar por defecto: \textit{hiro} y \textit{kanji}. En este caso utilizaremos el patrón \textit{hiro}, que es el que consiste en un cuadrado negro simple.\\
 
-Añadimos a la raíz de la escena un objeto que será contenedor del objeto 3D que queremos que aparezca cuando enfocamos al marcador y que lleva el script ARTrackedObject y dentro del campo “Marker Tag” introducimos el identificador del marcador asociado al objeto.\\
+Añadimos a la raíz de la escena un objeto que será contenedor del objeto 3D que queremos que aparezca cuando enfocamos al marcador y que lleva el script \textit{ARTrackedObject} y dentro del campo ``Marker Tag'' introducimos el identificador del marcador asociado al objeto.\\
 
 Conclusiones: si bien este sistema fue útil en su día para sentar las bases del desarrollo de programas en realidad aumentada, hoy en día no tiene mucho sentido su uso. No se encuentra casi documentación actualizada para su uso y la página web que le daba soporte (artoolkit.org) ha desaparecido. Además, sus funcionalidades son muy limitadas y su rendimiento es muy inferior al que presentan otras alternativas más actuales como Vuforia, que permite también el uso de marcadores. Sí que es cierto que una aplicación generada con esta librería y que realiza la misma funcionalidad que otra, pero generada usando Vuforia pesa ligeramente menos. Sin embargo, no consideramos que sobre todo el conjunto este dato sea lo suficientemente significativo como para plantearse su uso.\\
+
+\clearpage
 \section{Evaluación}
 \subsection{Tabla de funcionalidades}
 A continuación, hay una tabla en el que se puede comparar rápidamente las funcionalidades que tiene cada una de las librerías que vamos a analizar. Más adelante, en la parte de comparación y análisis de las librerías, evaluaremos la calidad y eficiencia de estas funcionalidades para cada librería.
@@ -226,7 +411,8 @@ A continuación, hay una tabla en el que se puede comparar rápidamente las func
 \begin{table}[ht]
 \resizebox{\textwidth}{!} {
     \centering
-    \begin{tabular}{m{2cm}|m{2.8cm}| m{2.8cm}|m{2cm}|c|m{2.8cm}|m{2cm}|m{2cm}}
+    \begin{tabular}{|m{2cm}|m{2.8cm}| m{2.8cm}|m{2cm}|c|m{2.8cm}|m{2cm}|m{2cm}|}
+    \hline
         SDK & Reconocimiento 2D & Reconocimiento 3D & Detección de planos & SLAM & Reconocimiento de rostro & Estimación de luces & Otras \\
 \hline
 \textbf{Wikitude} & \checkmark & \checkmark & \checkmark & \checkmark & - & \checkmark & Geo AR \\
@@ -260,7 +446,8 @@ Este apartado consistirá en dos apartados, en la primera compararemos en que pl
 \begin{table}[ht]
 \resizebox{\textwidth}{!} {
     \centering
-    \begin{tabular}{c|c|c|c|c|c|c|c}
+    \begin{tabular}{|c|c|c|c|c|c|c|c|}
+    \hline
        SDK &	Unity3D (Android, iOS) &	Unreal Engine 4 &	Java &	Objective-C &	C++ & JavaScript \\
        \hline
 Wikitude & \checkmark & – & \checkmark & \checkmark & – & \checkmark \\
@@ -295,7 +482,8 @@ Con esta tabla, es muy fácil ver que Unity3D sale ganador, podemos trabajar con
 \begin{table}[H]
 \resizebox{\textwidth}{!} {
     \centering
-    \begin{tabular}{m{3cm}|c|c|c|c|c|c|c|c|c}
+    \begin{tabular}{|m{3cm}|c|c|c|c|c|c|c|c|c|}
+    \hline
     &Wikitude&	ARKit &	ARcore & Vuforia &	MaxST &	EasyAR & Kudan & 8th Wall XR & ARFoundation\\
      \hline
          Calidad de la documentación      &          &       &        &         &       &        &       &             &              \\
@@ -312,7 +500,8 @@ Comportamiento con luz tenue     &          &       &        &         &       &
  \hline
 Estimación de luces              &          &       &        &         &       &        &       &             &              \\
  \hline
-Total (puntuación)               &          &       &        &         &       &        &       &             &            
+Total (puntuación)               &          &       &        &         &       &        &       &             &            \\
+\hline
     \end{tabular}
 }
     \caption{Análisis de las características de las librerías de RA sin marcadores}
