@@ -46,9 +46,9 @@ Consigue instanciar el objeto dentro de un plano y posee buena iluminación. El 
     \hline
           & Luz Ambiente & Luz Mínimas \\
          \hline
-        Estabilidad del punto de anclaje   &4 &6\\
+        Estabilidad del punto de anclaje   &3 &6\\
         \hline
-        Estimación y calidad de iluminación  &7 &8 \\
+        Estimación y calidad de iluminación  &4 &6 \\
         \hline
         Resistencia a movimientos  &1 &2 \\
         \hline
@@ -60,7 +60,7 @@ Consigue instanciar el objeto dentro de un plano y posee buena iluminación. El 
 \end{table}
 
 \subsection{Conclusiones}
-
+A pesar de ser una de las librerías pioneras en el sector, los resultados obtenidos no nos convencen y no le encontramos su uso frente a sus competidores, por lo menos en lo que a realidad aumentada sin marcadores se refiere.Lo peor de esta librería es la resistencia a movimientos bruscos (y no tan bruscos), desde que el móvil sufre una pequeña agitación, el modelo desaparece, lo cual es desastroso. Y lo que más nos ha sorprendido es su intento de detectar la oclusión, ha sido la única que ha reaccionado cuando hemos cruzado una pared.
 \clearpage
 \section{ARKit}
 \subsection{Calidad de la documentación y primeros pasos}
@@ -89,13 +89,13 @@ Reconoce los planos de casi instantáneamente, por lo que nos permite posicionar
     \hline
           & Luz Ambiente & Luz Mínimas \\
          \hline
-        Estabilidad del punto de anclaje   &4 &6\\
+        Estabilidad del punto de anclaje   &10 &10\\
         \hline
-        Estimación y calidad de iluminación  &7 &8 \\
+        Estimación y calidad de iluminación  &9 &10 \\
         \hline
-        Resistencia a movimientos  &1 &2 \\
+        Resistencia a movimientos  &9 &10 \\
         \hline
-        Recuperación del ancla  &8 &8 \\
+        Recuperación del ancla  &10 &10 \\
       \hline
     \end{tabular}
     \caption{Análisis ARKit}
@@ -146,12 +146,11 @@ Los resultados obtenidos con ARCore han sido magníficos, el único punto flojo 
 \clearpage
 \section{Vuforia}
 \subsection{Calidad de la documentación y primeros pasos}
-Los primeros pasos con esta librería en Unity son muy accesibles, gracias a una documentación de calidad podemos ser guiados paso a paso para la creación de una nueva experiencia de realidad aumentada. La integración con Unity es muy 
+Los primeros pasos con esta librería en conjunto con Unity son muy ágiles y accesibles, gracias a una documentación de calidad podemos ser guiados paso a paso para la creación de una nueva experiencia de realidad aumentada. La integración con Unity es muy simple gracias a un paquete que podemos descargar desde el propio editor. Una vez instalado el paquete, los pasos necesarios para crear una aplicación que detecta una superficie, es tan simple como añadir dos objetos proporcionados por Vuforia y el modelo que queremos instanciar a la escena.
 
 
 \subsection{Evaluación de las capacidades de la librería}
 \subsubsection{Condiciones de luz mínimas:}
-
 \textbf{Esta prueba está disponible en el link:} \url{https://youtu.be/4Y_Enzrx17w}
 
 La sala está únicamente iluminada por un haz de luz perteneciente a una habitación situada al otro lado del pasillo y una iluminación frontal.\\
@@ -159,7 +158,6 @@ La sala está únicamente iluminada por un haz de luz perteneciente a una habita
 El nivel de luz de la sala no supone ningún problema para posicionar el modelo. La calidad de las texturas del objeto son malas, además no existe ninguna estimación de iluminación sobre el modelo. El anclaje alrededor del objeto con movimientos suaves es malo ya que se mueve con nosotros. La estabilidad del objeto cuando nos movemos en sus proximidades es mala ya que el objeto cambia de posición a medida que nos acercamos. No conseguimos perder el objeto con la distancia. La capacidad de soportar movimientos bruscos es buena, ya que no pierde la posición del ancla. Al sacarlo del campo de visión lo mantiene en su posición en todo momento.
 
 \subsubsection{Condiciones de luz ambiente:\\}
-
 \textbf{Esta prueba está disponible en el link:} \url{https://youtu.be/zlUj-jh7Uts}
 
 Después de mejorar las condiciones de luz se mantienen los problemas de estimación de luz. La visualización del modelo renderiza las texturas de manera muy pobre siendo muy poco realista. La estabilidad del objeto mejora ya que podemos girar alrededor del objeto sin perder la referencia, permitiéndonos acercarnos en esta ocasión. Se mantiene la capacidad de soportar movimientos bruscos y la robustos en cuanto al campo de visión.
@@ -170,24 +168,26 @@ Después de mejorar las condiciones de luz se mantienen los problemas de estimac
     \hline
           & Luz Ambiente & Luz Mínimas \\
          \hline
-        Estabilidad del punto de anclaje   &4 &6\\
+        Estabilidad del punto de anclaje   & 5 & 7\\
         \hline
-        Estimación y calidad de iluminación  &7 &8 \\
+        Estimación y calidad de iluminación  &2 &2 \\
         \hline
-        Resistencia a movimientos  &1 &2 \\
+        Resistencia a movimientos  &10 &10 \\
         \hline
-        Recuperación del ancla  &8 &8 \\
+        Recuperación del ancla  &10 &10 \\
       \hline
     \end{tabular}
     \caption{Análisis Vuforia}
     \label{tab:TVuforia}
 \end{table}
+
 \subsection{Conclusiones}
+Los resultados obtenidos con Vuforia no son los esperados ya que se trata de una de las librerías pioneras en el mercado y su resultado dista mucho de sus competidores. El listado de los dispositivos\cite{Vuforia_Devices} soportados no tiene mucha coherencia ya que están los últimos dispositivos de las marcas principales del mercado como Apple o Samsung y sin embargo en las demás marcas encontramos productos muy antiguos generando problemática a la hora de cubrir un rango amplio de usuarios. Como punto fuerte podríamos establecer su detallada documentación. Además nos ha gustado mucho el detalle de tener una cuadrícula(100cm x 100 cm) de referencia en Unity para poder saber las dimensiones del objeto en la realidad.
 
 \clearpage
 \section{Kudan}
 \subsection{Calidad de la documentación y primeros pasos}
-Los primeros pasos con Kudan no son tan gratificantes en comparación a sus competidores. Empezando por la descarga del SDK, ésta ni si quiera se encuentra en la página oficial \cite{Kudan_Official}, si no que se encuentra en XLSoft \cite{Kudan}. Una vez metido el SDK en Unity, en las carpetas vienen escenas de ejemplo, en las que podemos ver como se monta una aplicación con Kudan. La librería está protegida por \textit{Package Name}, contactando con los desarrolladores de Kudan puedes obtener una clave de licencia para cualquier \textit{Package Name}, sin embargo, proporcionan una general con la que podemos desarrollar ``com.xlsoft.kudanar''. \cite{Kudan_License}La documentación para los primeros pasos es aceptable, pero sobre el SDK y la API no hay documentación, únicamente los comentarios en los scripts. Una vez instalada la aplicación en el teléfono, seguramente no funcione ya que la aplicación no pide los permisos para usar la cámara, y sin ellos Kudan no puede inicializarse. Para arreglar este error, hace falta añadir en algún script esta línea de código "Permision.RequestUserPermission(Permission.Camera)'', que se encuentra en el paquete "UnityEngine.Android''.
+Los primeros pasos con Kudan no son tan gratificantes en comparación a sus competidores. Empezando por la descarga del SDK, ésta ni si quiera se encuentra en la página oficial \cite{Kudan_Official}, si no que se encuentra en XLSoft \cite{Kudan}. Una vez metido el SDK en Unity, en las carpetas vienen escenas de ejemplo, en las que podemos ver como se monta una aplicación con Kudan. La librería está protegida por \textit{App ID} (identificador de aplicación), contactando con los desarrolladores de Kudan puedes obtener una clave de licencia para cualquier \textit{Package Name}, sin embargo, proporcionan una general con la que podemos desarrollar ``com.xlsoft.kudanar''. \cite{Kudan_License}La documentación para los primeros pasos es aceptable, pero sobre el SDK y la API no hay documentación, únicamente los comentarios en los scripts. Una vez instalada la aplicación en el teléfono, seguramente no funcione ya que la aplicación no pide los permisos para usar la cámara, y sin ellos Kudan no puede inicializarse. Para arreglar este error, hace falta añadir en algún script esta línea de código "Permision.RequestUserPermission(Permission.Camera)'', que se encuentra en el paquete "UnityEngine.Android''.
 \subsection{Evaluación de las capacidades de la librería}\\
 \subsubsection{Condiciones de luz mínimas:}
 
@@ -408,30 +408,32 @@ Conclusiones: si bien este sistema fue útil en su día para sentar las bases de
 \subsection{Tabla de funcionalidades}
 A continuación, hay una tabla en el que se puede comparar rápidamente las funcionalidades que tiene cada una de las librerías que vamos a analizar. Más adelante, en la parte de comparación y análisis de las librerías, evaluaremos la calidad y eficiencia de estas funcionalidades para cada librería.
 
+En la tabla \ref{tab:funcionalidades} se menciona el tipo de \textit{tracking} refiriéndonos a \textit{tracking} instantáneo o detección de planos. El \textit{tracking instantáneo} no necesita ninguna información previa del entorno para instanciar el objeto, a contrario de la detección de planos, que es una tecnología mas novedosa y costosa, pero también aporta mayor calidad. El punto a favor del \textit{tracking} instantáneo es que gracias a su menor complejidad, puede abarcar un rango mucho más amplio de dispositivos soportados frente a la detección de planos.
+
 \begin{table}[ht]
 \resizebox{\textwidth}{!} {
     \centering
     \begin{tabular}{|m{2cm}|m{2.8cm}| m{2.8cm}|m{2cm}|c|m{2.8cm}|m{2cm}|m{2cm}|}
     \hline
-        SDK & Reconocimiento 2D & Reconocimiento 3D & Detección de planos & SLAM & Reconocimiento de rostro & Estimación de luces & Otras \\
+        SDK & Reconocimiento 2D & Reconocimiento 3D & Tipo de tracking & SLAM & Reconocimiento de rostro & Estimación de luces & Otras \\
 \hline
-\textbf{Wikitude} & \checkmark & \checkmark & \checkmark & \checkmark & - & \checkmark & Geo AR \\
+\textbf{Wikitude} & \checkmark & \checkmark & Tracking instantáneo & \checkmark & - & \checkmark & Geo AR \\
 \hline
-\textbf{ARKit} & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & Oclusión, Cloud Anchor \\
+\textbf{ARKit} & \checkmark & \checkmark & Detección de planos & \checkmark & \checkmark & \checkmark & Oclusión, Cloud Anchor \\
 \hline
-\textbf{ARCore} & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & Cloud Anchor \\
+\textbf{ARCore} & \checkmark & \checkmark & Detección de planos & \checkmark & \checkmark & \checkmark & Cloud Anchor \\
 \hline
-\textbf{Vuforia} & \checkmark & \checkmark & \checkmark & \checkmark & - & \checkmark &  \\
+\textbf{Vuforia} & \checkmark & \checkmark & Detección de planos & \checkmark & – & \checkmark &  \\
 \hline
-\textbf{Kudan} & \checkmark & - & \checkmark & \checkmark & - & \checkmark &  \\
+\textbf{Kudan} & \checkmark & - & Tracking instantáneo & \checkmark & - & \checkmark &  \\
 \hline
-\textbf{MaxST} & \checkmark & \checkmark & \checkmark & \checkmark & – & \checkmark & \\
+\textbf{MaxST} & \checkmark & \checkmark & Tracking instantáneo & \checkmark & – & \checkmark & \\
 \hline
-\textbf{8th Wall XR} & \checkmark & – & \checkmark & \checkmark & – & \checkmark &  \\
+\textbf{8th Wall XR} & \checkmark & – & Detección de planos & \checkmark & – & \checkmark &  \\
 \hline
-\textbf{EasyAR} & \checkmark & \checkmark & \checkmark & \checkmark & – & \checkmark & Grabación de pantalla \\
+\textbf{EasyAR} & \checkmark & \checkmark & Tracking instantáneo & \checkmark & – & \checkmark & Grabación de pantalla \\
 \hline
-\textbf{AR Foundation} & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \\
+\textbf{AR Foundation} & \checkmark & \checkmark & Detección de planos & \checkmark & \checkmark & \checkmark & \\
 \hline
     \end{tabular}
   }
@@ -484,26 +486,24 @@ Con esta tabla, es muy fácil ver que Unity3D sale ganador, podemos trabajar con
     \centering
     \begin{tabular}{|m{3cm}|c|c|c|c|c|c|c|c|c|}
     \hline
-    &Wikitude&	ARKit &	ARcore & Vuforia &	MaxST &	EasyAR & Kudan & 8th Wall XR & ARFoundation\\
+    &Wikitude&	ARKit &	ARcore & Vuforia & Kudan &	MaxST  & 8th Wall XR & EasyAR & ARFoundation\\
      \hline
-         Calidad de la documentación      &          &       &        &         &       &        &       &             &              \\
-
+         Calidad de la documentación 	& 10 & 9 & 9 & 8 &2 & 9 & 9 &  7 & 8 \\
   \hline
-Estabilidad del punto de anclaje &          &       &        &         &       &        &       &             &              \\
-
+Estabilidad del punto de anclaje 		& 6 & 10 & 10 & 10 & 7 & 6 &  10  & 3 & 10 \\
  \hline
-Comportamiento con luz ambiente  &          &       &        &         &       &        &       &             &              \\
+Comportamiento con luz ambiente   & 6 & 10 & 10& 7 & 6 & 7 & 10  & 5 & 10\\
  \hline
-Comportamiento con luz mínima     &          &       &        &         &       &        &       &             &              \\
+Comportamiento con luz mínima     & 3 &  9 & 10 & 6 & 3 & 3& 10 & 5 & 9\\
  \hline
-Estimación de luces y calidad de imagen              &          &       &        &         &       &        &       &             &              \\
+Estimación de luces y calidad de imagen & 6 & 10 & 9 & 2  & 0  & 2 & 8 & 1 &9\\
  \hline
-Total (puntuación)               &          &       &        &         &       &        &       &             &            \\
+Total (puntuación) & 6,2 & 9,6 & 9,6  & 6,6 &    3,6   &   5,4     &  9,4     &     3,5        &  9,2          \\
 \hline
     \end{tabular}
 }
     \caption{Análisis de las características de las librerías de RA sin marcadores}
     \label{tab:my_label}
 \end{table}
-
+Falta la conclusion final...
 \noindent
