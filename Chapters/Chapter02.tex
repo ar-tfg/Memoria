@@ -24,7 +24,7 @@ En la década de 1950, surgió por primera vez el término realidad aumentada cu
     \label{fig:EspadaDamocles}
 \end{wrapfigure}
 
-En el 1968, Ivan Sutherland, inventó el HMD (\textit{Human Mounted Display}), siendo así, el primer sistema que permitía ver las aristas de sencillos objetos 3D (\textit{Wireframe}) en tiempo real. Empleaba dos sistemas de \textit{tracking} para calcular el registro de la cámara; uno mecánico y otro basado en ultrasonidos.\\
+En el 1968, Ivan Sutherland, inventó el HMD (\textit{Human Mounted Display}), siendo así, el primer sistema que permitía ver las aristas de sencillos objetos 3D (\textit{Wireframe}) en tiempo real. Empleaba dos sistemas de \textit{tracking} para calcular el registro de la cámara; uno mecánico y otro basado en ultrasonidos. Debido a su gran peso, se decidió colgar el artefacto en el techo, como se puede ver en la figura \ref{fig:EspadaDamocles}.
 \\
 \\
 \\
@@ -34,7 +34,7 @@ En el 1968, Ivan Sutherland, inventó el HMD (\textit{Human Mounted Display}), s
 
 
 Sin embargo, no fue hasta 1992 cuando se acuñó el término de Realidad Aumentada por Tom Caudell y David Mizell, dos ingenieros de Boeing que proponían el uso de esta novedosa tecnología para mejorar la eficiencia y experiencia de las tareas realizadas por operarios humanos asociadas a la fabricación de aviones.
-La aparición del primer videojuego en realidad aumentada ocurrió en el año 2000. Bruce Thomas demostró en el ISWC (The International Symposium on Wearable Computers) su videojuego ARQuacke. El sistema empleaba una brújula digital, un receptor de GPS y métodos de visión basados en marcas \cite{ARToolkit}. Los jugadores tenían que llevar una especie de ordenador portátil a la espalda, un casco de visión estereoscópica y un mando de dos botones.\cite{ARQuake}
+La aparición del primer videojuego en realidad aumentada ocurrió en el año 2000. Bruce Thomas demostró en el ISWC (The International Symposium on Wearable Computers) su videojuego ARQuacke. El sistema empleaba una brújula digital, un receptor de GPS y métodos de visión basados en marcas \cite{ARToolkit}. Los jugadores tenían que llevar una especie de ordenador portátil a la espalda, un casco de visión estereoscópica y un mando de dos botones \cite{ARQuake} como podemos ver en la figura \ref{fig:Dispositivo_ARQuake} . El funcionamiento del HMD, como se puede ver en la figura \ref{fig:HIWARQuake} consistía en un divisor de haz que recibía la imagen virtual desde una pantalla que permitía ver el mundo real y el virtual en los ojos del usuario. La imagen resultante, como se puede observar en la figura \ref{fig:Ex_ARQuake} permitía una inmersión muy lograda para la época.
 
 \begin{figure}[ht]
     \centering
@@ -46,8 +46,8 @@ La aparición del primer videojuego en realidad aumentada ocurrió en el año 20
     \end{minipage}\hfill
     \begin{minipage}{0.32\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{Images/ARQuake_Example.png}
-    \caption{Ejemplo de ARQuake}
+        \includegraphics[width=\linewidth]{Images/arquake.jpg}
+    \caption{Ejemplo de ARQuake. Imagen sacada de(\url{http://www.tinmith.net/arquake/})}
     \label{fig:Ex_ARQuake}
     \end{minipage}
         \begin{minipage}{0.32\textwidth}
@@ -57,7 +57,7 @@ La aparición del primer videojuego en realidad aumentada ocurrió en el año 20
     \label{fig:Dispositivo_ARQuake}
     \end{minipage}
 \end{figure}
-
+\foot{Imágenes de las figuras \ref{fig:HIWARQuake} y \ref{fig:Dispositivo_ARQuake} sacadas del libro de ARQuake \cite{ARQuake}}
 \subsection{Immersive computing}
 En 2007, en el ISMAR(Simposio internacional de realidad aumentada y mixta), Klein y Murray presentan el algoritmo PTAM (Parallel Tracking and Modeling) una variante al SLAM, que separa la localización y el mapeado en hilos diferentes. El SLAM es un algoritmo que sirve para que localizar la posición dentro de un entorno y modelarlo, más tarde lo explicaremos mas a fondo. Separar estos dos procesos en hilos diferentes permitía conseguir unos resultados en tiempo real muy sólidos.\\
 
@@ -67,9 +67,7 @@ En 2007, en el ISMAR(Simposio internacional de realidad aumentada y mixta), Klei
     \caption{Wikitude App 2008}
     \label{fig:wikitude2008}
 \end{wrapfigure}
-En 2008 se creó Wikitude, una aplicación que utilizaba el GPS para mostrarte información de la Wikipedia según el lugar en el que estuvieras, pudiendo aprender datos sobre monumentos, esculturas o construcciones que te fueras encontrando.\\
-\\
-\\
+En 2008 se creó Wikitude, una aplicación que utilizaba el GPS para mostrarte información de la Wikipedia según el lugar en el que estuvieras, pudiendo aprender datos sobre monumentos, esculturas o construcciones que te fueras encontrando. Como se puede ver en la figura \ref{fig:wikitude2008}, el cámara está enfocando un castillo y el móvil le dice cuál es, además le aporta información adicional como la distancia a la que está y el origen del castillo. \\
 \\
 \\
 \\
@@ -77,13 +75,14 @@ En 2008 se creó Wikitude, una aplicación que utilizaba el GPS para mostrarte i
 \\
 \\
 
-Un año más tarde, en 2009, desarrolló el videojuego ARrrrr del género shooter, el primer videojuego en realidad aumentada para smartphone con contenido 3D de alta calidad. Se generaba un mapa 3D sobre un marcador, y el objetivo era rescatar a los humanos de la ciudad y matar a los zombies. 
+Un año más tarde, en 2009, desarrolló el videojuego ARhrrrr! del género shooter, el primer videojuego en realidad aumentada para smartphone con contenido 3D de alta calidad. Se generaba un mapa 3D sobre un marcador, y el objetivo era rescatar a los humanos de la ciudad y matar a los zombies (ver figura \ref{fig:arhrrrr}) \cite{ARToolkit}.
 \begin{figure}[H]
     \centering
         \includegraphics[width=0.5\linewidth]{Images/Arrrr.jpeg}
-        \caption{ARrrrrr! Example}
+        \caption{Ejemplo del videojuego ARhrrrr!. Imagen sacada de (\url{https://github.blairmacintyre.me/site-archive/ael-2015/research/games/arhrrrr/})}
+        \label{fig:arhrrrr}
   \end{figure}
-En el mismo año, el estudio español Novorama crea el videojuego de PSP (Portable PlayStation) Invizimals, un éxito mundial, vendiendo más de 8 millones de copias en todo el mundo en el primer trimestre de 2010. Este juego usaba la cámara addicional que se conectaba a la PSP, y con marcadores se registraba la posición del micro.
+En el mismo año, el estudio español Novorama crea el videojuego de PSP (PlayStation Portable) Invizimals, un éxito mundial, vendiendo más de 8 millones de copias en todo el mundo en el primer trimestre de 2010. Este juego necesita usar la cámara adicional que se conecta a la PSP, y gracias al uso de los marcadores, se puede registrar la posición del jugador.
 
 \subsection{Project Tango}
 En 2014, Project Tango nació como uno de los primeros desarrollos de realidad aumentada pensado para ser distribuido mundialmente en los smartphones. En 2015, Tango pasa a formar parte de Google. El objetivo era crear un dispositivo portátil que permitiese mapear espacios 3D. Esta tecnología solo se desarrolló para el dispositivo Phab2 Pro de Lenovo, el cual incluía un mayor número de cámaras, concretamente 3.
@@ -179,9 +178,20 @@ Para hacer un buen uso de ellos se debe evitar colocar puntos de anclado en supe
 \section{Aplicaciones}
 En este apartado se recogen las principales aplicaciones por sectores que existen de la realidad aumentada. Estas son la medicina, educación, arte, seguridad, publicidad, turismo, ecommerce y videojuegos.
 \subsection{Medicina}
+El estrés intenso, incomodidad o la forma de vida sedentaria son factores que tienen un impacto negativo en el bienestar de las personas y su calidad de vida. Se han desarrollado numerosos prototipos para ayudar a la gente con este tipo de problemas. Por otra parte, las técnicas de \textit{gamificación} \footnote{ Técnica de aprendizaje que traslada la mecánica de los juegos al ámbito educativo-profesional con el fin de conseguir mejores resultados.} han sido usadas con éxito en aplicaciones cuyo fin es mejorar la salud de las personas incentivándolas a cambiar sus malos hábitos.\\
+Además, ciertos conceptos de juegos de realidad aumentada pueden ser utilizados con propósitos de salud en ancianos. La actividad física es un aspecto clave al hacernos mayores. Algunas consideraciones conceptuales e investigaciones han ayudado a desarrollar entornos de realidad aumentada que sirvan a las personas mayores para hacer ejercicio y mejorar su calidad de vida.\\
+Como éste, existen gran variedad de conceptos que implican el uso de la realidad aumentada para favorecer el bienestar y la calidad de vida de las personas.\\
+
 \cite{ARGames_Gamification}
 \subsection{Educación}
+Los juegos en realidad aumentada, en el sector de la educación, tienen el potencial de abrir el camino a nuevas formas de aprendizaje y adquisición de conocimientos, cambiando así la experiencia del estudio. Aun así, todavía hay algunas dudas sobre cómo los juegos que utilizan la realidad aumentada y sus diseños se basan en géneros ya existentes pueden ser usados para expandir el proceso educativo convencional en el contexto de diversos paradigmas teóricos y modelos utilizados en el aprendizaje clásico. Pese a este desconocimiento, es innegable que los métodos de aprendizaje basados en la gamificación han conseguido una mayor implicación de los estudiantes y un mayor interés por el aprendizaje de nuevas materias.\\
+ \cite{ARGames_Gamification}.\\
+
 \subsection{Arte}
+La gamificación es un término que se refiere a la mezcla de juegos con medios interactivos (como la realidad aumentada en este caso) para permitir la transformación de una tarea de aprendizaje u obtención de información digital en una experiencia divertida, accesible y que nos aporte los resultados que estábamos buscando.
+Uno de los principales inconvenientes que se nos ocurren al pensar en la gamificación aplicada al ámbito de el arte en realidad aumentada es que simplemente no existen demasiados ejemplos viables hasta la fecha, aunque sí encontramos aplicaciones con este potencial para la realidad virtual.
+Pese a esto, cabe destacar Membit \cite{MembitYT}, una aplicación fotográfica pública que utiliza la geolocalización del dispositivo. Permite a los usuarios tomar fotos de lugares en una determinada orientación espacial o colocar una imagen en el espacio. Para ver la imagen, el usuario accede a un canal o escanea la zona y se coloca desde la posición en que se tomó la captura. Este es un uso único de la realidad aumentada, que crea ventanas asíncronas de experiencias hacia el pasado del lugar en cuestión. 
+\cite{ARGames_Gamification}
 \subsection{Fabricación}
 \subsection{Publicidad}
 \subsection{Turismo}
@@ -233,7 +243,6 @@ Luego se compararán todas juntas para ver las funcionalidades que tienen, las p
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.2\textwidth]{Images/Wikitude_Logo.png}
-    \caption{Logo de Wikitude}
     \label{fig:Wikitude}
 \end{figure}
 Desarrollada por Wikitude GmbH, es una de las librerías pioneras en el mundo de la realidad aumentada. Lanzaron su primera aplicación en el 2008, desde entonces, son líderes del mercado. La versión que hemos usado ha sido Wikitude SDK 8.7.0 (2019-08-13).\cite{Wikitude}
@@ -278,7 +287,6 @@ Licencias:
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.2\textwidth]{Images/Arkit_Logo.jpeg}
-    \caption{Logo de ARKit}
     \label{fig:ARKit}
 \end{figure} 
 
@@ -307,7 +315,6 @@ La licencia es gratuita.
  \begin{figure}[H]
     \centering
     \includegraphics[width=0.2\textwidth]{Images/ARCore.jpeg}
-    \caption{Logo de ARCore}
     \label{fig:ARCore}
 \end{figure}
 
@@ -339,7 +346,6 @@ La licencia para usar ARCore es completamente gratuita.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.2\textwidth]{Images/Vuforia.jpeg}
-    \caption{Logo de Vuforia}
     \label{fig:Vuforia}
 \end{figure}
 Desarrollado por la empresa PTC, un proveedor tecnológico mundial de la plataforma líder de IoT (Internet of Things) y realidad aumentada. La versión que hemos utilizado ha sido Vuforia SDK Android 8.3.8 (2019-06-13).\cite{Vuforia}
@@ -368,7 +374,6 @@ Licencias:
  \begin{figure}[H]
     \centering
     \includegraphics[width=0.2\textwidth]{Images/Kudan_Logo.png}
-    \caption{Logo de Kudan}
     \label{fig:Kudan}
 \end{figure}
 
@@ -397,7 +402,6 @@ Licencias:
  \begin{figure}[H]
     \centering
     \includegraphics[width=0.2\textwidth]{Images/Maxst_Logo.jpeg}
-    \caption{Logo de Maxst}
     \label{fig:Maxst}
 \end{figure}
 
@@ -431,7 +435,6 @@ Licencias:
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.2\textwidth]{Images/8thWall_Logo.jpeg}
-    \caption{Logo de 8th Wall}
     \label{fig:8th Wall}
 \end{figure}
 
@@ -472,7 +475,6 @@ El uso de 8th Wall XR de Unity es gratuito. En el caso de 8th Wall Web, la licen
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.2\textwidth]{Images/EasyAR.png}
-    \caption{Logo EasyAR}
     \label{fig:my_label}
 \end{figure}
 
@@ -503,7 +505,6 @@ Licencias:
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.2\textwidth]{Images/Unity_Logo.jpeg}
-    \caption{Logo Unity}
     \label{fig:my_label}
 \end{figure}
 

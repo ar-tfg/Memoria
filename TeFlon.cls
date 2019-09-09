@@ -491,7 +491,7 @@ title={#2},fonttitle=\bfseries,#1}
 
 
 \newcommand*{\tituloTFG}[0]{
-\pagenumbering{Roman}
+\pagenumbering{arabic}
 \thispagestyle{empty}
 \vspace*{9mm}
 \begin{center}
