@@ -114,7 +114,12 @@ Una vez que conseguimos tener dos dispositivos que soportasen ARCore, empezamos 
 En el \textit{Cloud Anchor Network Manager} hay que registrar el objeto que se va a instanciar cada vez que entra un jugador a la partida, en nuestro caso será un avión. El avión en un principio está desactivado y se activa en el momento en el que se \textit{hostea} o resuelva el anchor principal. El avión consta de una velocidad constante hacia delante, y para controlar su trayectoria existe en la parte inferior izquierda de la pantalla un \textit{joystick} que te permite mover el avión hacia arriba, abajo, derecha e izquierda. En la esquina inferior derecha se encuentra un botón que al pulsarlo, se lanza una bomba en la posición del avión, dicha bomba sirve para destruir los edificios que se encuentran en la ciudad. El objetivo principal del juego es destruir el mayor número de edificios posible.
 
 La principal complicación fue implementar la parte de multijugador, ya que no teníamos conocimiento previo sobre el tema.
-
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{Images/Bombardero.jpg}
+    \caption{Visualización del BombARdero+}
+    \label{Bombardero}
+\end{figure}
 
 \clearpage
 \section{Instrucciones de montaje de muebles en AR - AmueblAR}
@@ -138,7 +143,14 @@ Pensamos que podríamos empezar a animar cada parte por separado dentro de un ob
 En lo referente a las animaciones nos fue muy útil el vídeo que tiene publicado la cuenta de Ikea España en la plataforma Youtube \cite{IkeaYT} en el que se explica el procedimiento que se sigue para construir el sofá. Habiéndolo analizado dividimos el montaje en 9 pasos diferenciados y los animamos también en Blender, haciendo desaparecer las partes que no se están utilizando en ese momento para que sea más claro y fácil verlo.\\
 
 Al contrario que en los ejemplos con marcadores en los que pudimos exportar directamente el archivo de Blender para su uso en Unity, aquí nos dio problemas ya que el editor dejó de reconocer los \textit{clips} de vídeo de algunas animaciones. Solventamos este problema exportando el objeto desde el programa de modelado en formato ``fbx'', pero nos surgió otro nuevo inconveniente, todas las partes del sofá habían perdido sus texturas. Ya desde Unity creamos los materiales por separado y se los asignamos a cada pieza.
-Fue un proceso bastante agotador, sobre todo en la parte artística, pero consideramos que el resultado es satisfactorio y útil, además ofrece nuevas posibilidades en un campo que no deja de crecer.
+Fue un proceso bastante agotador, sobre todo en la parte artística, pero consideramos que el resultado es satisfactorio y útil, además ofrece nuevas posibilidades en un campo que no deja de crecer.\\
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{Images/amueblar.jpg}
+    \caption{Capturas de la aplicación AmueblAR}
+    \label{mueblAR}
+\end{figure}
 
 \clearpage
 \section{Visualizador de objetos en AR con gafas Aryzon}
