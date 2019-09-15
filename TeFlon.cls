@@ -504,9 +504,9 @@ title={#2},fonttitle=\bfseries,#1}
     \rule[0.5ex]{\linewidth}{2pt}\\
     \vspace{6.5mm}
     {\large Por\\\npersona}
-    \vspace{6.5mm}
+    \vspace{6mm}
     {\large\textsc{}}\\ %Nombres de los autores
-    \vspace{11mm}
+    \vspace{6mm}
     \includegraphics[scale=0.3]{\print}\\ %Logo de la UCM
     \vspace{6mm}
     {\large \grado\\    %Departamento del profesor que es el tutor

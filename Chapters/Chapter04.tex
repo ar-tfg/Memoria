@@ -12,8 +12,18 @@ Una vez se han testeado y analizado las diferentes tecnologías surgen diferente
 \end{itemize}
 
 \clearpage
-\section{Juego multijugador con cloud anchor (ARCore) - BombARdero+}
-La tecnlogía que mas nos ha impresionado ha sido los Cloud Anchors, nunca habíamos oído hablar de ella. Cuando nos enteramos de su existencia, estábamos todos de acuerdos en desarrollar un videojuego multijugador online.\\
+\section{Primeros prototipos}
+En esta sección hablaremos de los prototipos que se han desarrollado previamente a las tres aplicaciones cerradas.
+\subsection{Yu-gi-oh Game}
+
+\subsection{DragonBall}
+
+\subsection{Harry Potter}
+
+\subsection{JengAR}
+
+\section{Juego multijugador con \textit{cloud anchor} (ARCore) - BombARdero+}
+La tecnología que mas nos ha impresionado ha sido los \textit{Cloud Anchors}, nunca habíamos oído hablar de ella. Cuando nos enteramos de su existencia, estábamos todos de acuerdos en desarrollar un videojuego multijugador \textit{online}.\\
 
 Los Cloud Anchors, como hemos explicado anteriormente, se almacenan en la nube de Google. Para usarlos, hace falta conseguir una clave de licencia de \textit{ARCore Cloud Anchor API} en Google Cloud Platform \cite{GCloud}. Una vez conseguida la credencial, hay que introducirla en Unity3D, ``Edit -> Project Settings -> Google ARCore -> Cloud Anchor API Keys ''. En los ejemplos que ofrece Google, la implementación de los Cloud Anchor utiliza la \textit{Multiplayer High Level API(Multiplayer HLAPI)} de Unity, por lo que también hay que activar el servicio de multijugador en nuestro proyecto desde el \textit{dashboard} de Unity \cite{UnityDashboard}. Una vez realizado estos dos pasos, al compilar la escena de ejemplo, debería funcionar. En esa escena, un usuario tiene que crear una sala e instanciar un objeto, el punto de anclaje principal, que se convertirá en las coordenadas (0,0,0) del entorno.
 Este punto de anclaje tarda unos diez segundos en subirse a la nube y estar disponible para más usuarios, que al entrar a la aplicación le aparece un listado con las salas disponibles. \\
@@ -24,7 +34,7 @@ Como al principio no teníamos dos móviles que soportasen ARCore, programamos e
 
 En paralelo, como teníamos que implementar la parte de multijugador online y no teníamos ningún tipo de experiencia, realizamos unas pruebas para estudiar el funcionamiento de la Multiplayer HLAPI. Esas pruebas nos permitieron entender y aprender a desarrollar el multijugador de la prueba de concepto que nos hemos puesto como objetivo.\\
 
-Una vez que conseguimos tener dos dispositivos que soportasen ARCore, empezamos a desarrollador la aplicación multijugador. Gracias a haber desarrollado el \textit{BombARdero}, nos permitió avanzar muy rápido ya que estaban los modelos, \textit{prefabs}\footnote{ Objetos prefabricados de Unity3d}, y scripts con las mecánicas básicas ya creadas. Primero tuvimos que mirar como estaba montada la implementación de Google, para entender el proceso de cómo se subía el marcador a la nube y la cantidad de información de control que teníamos. Este proceso fue bastante sencillo, ya que el código de ejemplo es muy entendible e intuitivo. Una vez conseguido implementar el BombARdero con los Cloud Anchor, hubo que hacer unos pequeños retoques a los scripts e añadir componentes a los objetos, para implementar la parte multijugador.\\
+Una vez que conseguimos tener dos dispositivos que soportasen ARCore, empezamos a desarrollador la aplicación multijugador. Gracias a haber desarrollado el \textit{BombARdero}, nos permitió avanzar muy rápido ya que estaban los modelos, \textit{prefabs}\footnote{ Objetos prefabricados de Unity3d}, y scripts con las mecánicas básicas ya creadas. Primero tuvimos que mirar como estaba montada la implementación de Google, para entender el proceso de cómo se subía el marcador a la nube y la cantidad de información de control que teníamos. Este proceso fue bastante sencillo, ya que el código de ejemplo es muy entendible e intuitivo. Una vez conseguido implementar el BombARdero con los Cloud Anchors, hubo que hacer unos pequeños retoques a los scripts y añadir componentes de la multiplayer HLAPI a los objetos, para implementar la parte multijugador.\\
 Continuará...
 
 
@@ -63,12 +73,15 @@ Para el desarrollo de la aplicación usamos el SDK de Aryzon, que nos facilita l
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\linewidth]{Images/How-it-works.jpg}
-    \caption{Como funciona las gafas de Aryzon. Imagen sacada de (\url{https://www.igadgetsworld.com/aryzon-diy-augmented-reality-headset/}}
+    \caption{Como funciona las gafas de Aryzon}
     \label{GafasAryzon}
 \end{figure}
+ {\let\thefootnote\relax\footnote{{Imagen de la figura \ref{GafasAryzon} sacada de https://www.igadgetsworld.com/aryzon-diy-augmented-reality-headset/}}}
 
+Todos los ejemplos que proporciona Aryzon son con marcadores o no usan de verdad realidad aumentada, si no que que es una escena de realidad virtual con fondo negro y vista esteoroscópica, entonces da el efecto de ser realidad aumentada, pero la aplicación en sí es realidad virtual. Nosotros hemos decidido usar ARCore, ya que queremos usar la realidad aumentada sin marcadores y movernos alrededor del modelo, y como hemos visto en las pruebas, la estabilidad de los puntos de anclaje de ARCore es muy buena.\\
+Para el desarrollo de esta prueba de concepto, necesitamos el SDK de Aryzon y el SDK de ARCore, y los modelos sacados del \textit{Asset Store} de Unity \cite{AssetStore}. Desarrollamos un \textit{script} para manipular con el mando de Xbox One los objetos que instanciamos. El joystick izquierdo sirve para mover el objeto en los ejes X y Z, para moverlo verticalmente, se usa la cruceta (D-PAD) vertical. Para rotar el objeto en cuestión hemos configurado el script para que se realice con el joystick derecho, y para finalizar, con la cruceta horizontal podemos escalar el objeto. Por otro lado, los botones con los que controlamos la creación de objetos son, la A que permite intanciar el objeto en el lugar en el que estemos mirando, la X que cambia el modelo que se va a instanciar, ya que hemos puesto seis modelos en esta prueba de concepto y la B, nos permite activar y desactivar el \textit{render} de los planos que ha encontrado la aplicación, para tener una visión más limpia.\\
+El mayor problema que nos encontramos al desarrollar la aplicación fue la documentación respecto al \textit{mapeo} del mando, ya que cambia según la plataforma en la que se utiliza. La de Android no estaba actualizada y no coincidían los botones y los ejes que nos proporcionaba la documentación.\\
+El resultado final nos parece muy interesante, ya que tener el teléfono fijo en nuestros ojos gracias a las gafas, hace que podamos tener las manos libres para poder controlar y manipular lo que queramos ver. El precio de las gafas es un precio asequible para el público, y en nuestro caso hemos utilizado un mando de \textit{Xbox One }oficial, pero existen mandos Bluetooth para los \textit{smartphones} que también se pueden conseguir muy baratos. Usando la realidad aumentada de esta manera abre las posibilidades a nuevas mecánicas de juego y seguramente suponga una revolución en la realidad aumentada de "bolsillo".
 
-Todos los ejemplos que proporciona Aryzon son con marcadores o no usan de verdad realidad aumentada, si no que que es una escena de realidad virtual con fondo negro y vista esteoroscópica, entonces da el efecto de ser realidad aumentada, pero la aplicación en sí es realidad virtual. Nosotros hemos decidido usar ARCore, ya que queremos usar la realidad aumentada sin marcadores y movernos alrededor del modelo, y como hemos visto en las pruebas, la estabilidad de los puntos de anclaje de ARCore funcionan muy bien.\\
-Continuará...
 
 \noindent

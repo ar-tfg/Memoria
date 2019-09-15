@@ -1,6 +1,6 @@
 \chapter{Antecedentes y estado del arte}
 \section{Definición}
-Se llama realidad aumentada al conjunto de tecnologías que permite a un usuario ver contenido virtual superpuesto al mundo real mediante un dispositivo tecnológico. Las tecnologías de realidad virtual se diferencian en que sumerge al usuario dentro de un entorno completamente sintético, sin tener consciencia del mundo real que lo rodea. La Realidad Aumentada no sustituye la realidad, sino que la complementa y puede mejorar la experiencia en ciertos ámbitos.
+Se llama realidad aumentada al conjunto de tecnologías que permite a un usuario ver contenido virtual superpuesto al mundo real mediante un dispositivo tecnológico en tiempo real. Las tecnologías de realidad virtual se diferencian en que sumerge al usuario dentro de un entorno completamente sintético, sin tener consciencia del mundo real que lo rodea. La Realidad Aumentada no sustituye la realidad, sino que la complementa para ayudar a comprender mejor el entorno en el que nos rodea. El objetivo de esta tecnología es simplificar y facilitar el trabajo de los humanos en ciertos sectores, y gracias al increíble crecimiento que se está dando en el desarrollo de la realidad aumentada, sobretodo en los dispositivos móviles, la convierte en una tecnología muy barata y muy accesible.
 
 \section{Historia}
 \begin{wrapfigure}{r}{0.5\textwidth}
@@ -35,10 +35,6 @@ En el 1968, Ivan Sutherland, inventó el HMD (\textit{Human Mounted Display}), s
 
 Sin embargo, no fue hasta 1992 cuando se acuñó el término de Realidad Aumentada por Tom Caudell y David Mizell, dos ingenieros de Boeing que proponían el uso de esta novedosa tecnología para mejorar la eficiencia y experiencia de las tareas realizadas por operarios humanos asociadas a la fabricación de aviones.
 La aparición del primer videojuego en realidad aumentada ocurrió en el año 2000. Bruce Thomas demostró en el ISWC (The International Symposium on Wearable Computers) su videojuego ARQuacke. El sistema empleaba una brújula digital, un receptor de GPS y métodos de visión basados en marcas \cite{ARToolkit}. Los jugadores tenían que llevar una especie de ordenador portátil a la espalda, un casco de visión estereoscópica y un mando de dos botones\cite{ARQuake} como podemos ver en la figura \ref{fig:Dispositivo_ARQuake} . El funcionamiento del HMD, como se puede ver en la figura \ref{fig:HIWARQuake} consistía en un divisor de haz que recibía la imagen virtual desde una pantalla que permitía ver el mundo real y el virtual en los ojos del usuario. La imagen resultante, como se puede observar en la figura \ref{fig:Ex_ARQuake} permitía una inmersión muy lograda para la época.
-{\let\thefootnote\relax\footnote{{{Imágenes de las figuras \ref{fig:HIWARQuake} y \ref{fig:Dispositivo_ARQuake} sacadas del libro de ARQuake\cite{ARQuake}  }}}}
-
-{\let\thefootnote\relax\footnote{{Imagen de la figura \ref{fig:Ex_ARQuake} sacada de \url{http://www.tinmith.net/arquake/}}}}
-
 
 \begin{figure}[ht]
     \centering
@@ -63,6 +59,10 @@ La aparición del primer videojuego en realidad aumentada ocurrió en el año 20
 \end{figure}
 
 
+{\let\thefootnote\relax\footnote{{{Imágenes de las figuras \ref{fig:HIWARQuake} y \ref{fig:Dispositivo_ARQuake} sacadas del libro de ARQuake\cite{ARQuake}  }}}}
+
+{\let\thefootnote\relax\footnote{{Imagen de la figura \ref{fig:Ex_ARQuake} sacada de \url{http://www.tinmith.net/arquake/}}}}
+
 En 2007, en el ISMAR(Simposio internacional de realidad aumentada y mixta), Klein y Murray presentan el algoritmo PTAM (Parallel Tracking and Modeling) una variante al SLAM, que separa la localización y el mapeado en hilos diferentes. El SLAM es un algoritmo que sirve para que localizar la posición dentro de un entorno y modelarlo, más tarde lo explicaremos mas a fondo. Separar estos dos procesos en hilos diferentes permitía conseguir unos resultados en tiempo real muy sólidos.\\
 
 \begin{wrapfigure}{r}{0.5\textwidth}
@@ -81,13 +81,14 @@ En 2008 se creó Wikitude, una aplicación que utilizaba el GPS para mostrarte i
 \\
 
 Un año más tarde, en 2009, desarrolló el videojuego ARhrrrr! del género shooter, el primer videojuego en realidad aumentada para smartphone con contenido 3D de alta calidad. Se generaba un mapa 3D sobre un marcador, y el objetivo era rescatar a los humanos de la ciudad y matar a los zombies (ver figura \ref{fig:arhrrrr})\cite{ARToolkit}.
-{\let\thefootnote\relax\footnote{{Imagen de la figura \ref{fig:arhrrrr} sacada de \url{https://github.blairmacintyre.me/site-archive/ael-2015/research/games/arhrrrr/}}}}
+
 \begin{figure}[H]
     \centering
         \includegraphics[width=0.5\linewidth]{Images/Arrrr.jpeg}
         \caption{Ejemplo del videojuego ARhrrrr!.}
         \label{fig:arhrrrr}
   \end{figure}
+{\let\thefootnote\relax\footnote{{Imagen de la figura \ref{fig:arhrrrr} sacada de \url{https://github.blairmacintyre.me/site-archive/ael-2015/research/games/arhrrrr/}}}}
 En el mismo año, el estudio español Novorama crea el videojuego de PSP (PlayStation Portable) Invizimals, un éxito mundial, vendiendo más de 8 millones de copias en todo el mundo en el primer trimestre de 2010. Este juego necesita usar la cámara adicional que se conecta a la PSP, y gracias al uso de los marcadores, se puede registrar la posición del jugador.
 
 En 2014, Project Tango nació como uno de los primeros desarrollos de realidad aumentada pensado para ser distribuido mundialmente en los smartphones. En 2015, Tango pasa a formar parte de Google. El objetivo era crear un dispositivo portátil que permitiese mapear espacios 3D. Esta tecnología solo se desarrolló para el dispositivo Phab2 Pro de Lenovo, el cual incluía un mayor número de cámaras, concretamente 3.
@@ -102,49 +103,114 @@ Después de 3 años, en 2017, Google decide cerrar el desarrollo de Tango y se c
 
 \section{Aplicaciones}
 En este apartado se recogen las principales aplicaciones por sectores que existen de la realidad aumentada. Estas son la medicina, educación, arte, seguridad, publicidad, turismo, ecommerce y videojuegos.\\
-\textbf{FALTA POR RELLENAR ALGÚN EJEMPLO Y SECTOR} 
 \subsection{Medicina}
 El estrés intenso, incomodidad o la forma de vida sedentaria son factores que tienen un impacto negativo en el bienestar de las personas y su calidad de vida. Se han desarrollado numerosos prototipos para ayudar a la gente con este tipo de problemas. Por otra parte, las técnicas de \textit{gamificación} \footnote{ Técnica de aprendizaje que traslada la mecánica de los juegos al ámbito educativo-profesional con el fin de conseguir mejores resultados.} han sido usadas con éxito en aplicaciones cuyo fin es mejorar la salud de las personas incentivándolas a cambiar sus malos hábitos.\\
+
 Además, ciertos conceptos de juegos de realidad aumentada pueden ser utilizados con propósitos de salud en ancianos. La actividad física es un aspecto clave al hacernos mayores. Algunas consideraciones conceptuales e investigaciones han ayudado a desarrollar entornos de realidad aumentada que sirvan a las personas mayores para hacer ejercicio y mejorar su calidad de vida.\\
-Como éste, existen gran variedad de conceptos que implican el uso de la realidad aumentada para favorecer el bienestar y la calidad de vida de las personas\cite{ARGames_Gamification}.
+
+Debemos mencionar también que además de ayudar a los pacientes, la realidad aumentada también es capaz de ayudar a los doctores, como podemos ver en la figura \ref{fig:Surgeon}, los cirujanos se sirven de un programa que crea una proyección virtual sobre el cuerpo del paciente que les sirve de guía en el transcurso de la operación.
+
+\begin{figure}[H]
+     \centering
+     \includegraphics[width=0.7\textwidth]{Images/medicina_AR.jpg}
+     \caption{Uso de realidad aumentada en una intervención quirúrgica.}
+     \label{fig:Surgeon}
+ \end{figure}
+ {\let\thefootnote\relax\footnote{{Imagen de la figura \ref{fig:Surgeon} sacada de \url{https://i2.wp.com/blogthinkbig.com/wp-content/uploads/2018/04}}}}
+
+Como éste, existen gran variedad de conceptos que implican el uso de la realidad aumentada para favorecer el bienestar y la calidad de vida de las personas.\cite{ARGames_Gamification}
 \subsection{Educación}
-Los juegos en realidad aumentada, en el sector de la educación, tienen el potencial de abrir el camino a nuevas formas de aprendizaje y adquisición de conocimientos, cambiando así la experiencia del estudio. Aun así, todavía hay algunas dudas sobre cómo los juegos que utilizan la realidad aumentada y sus diseños se basan en géneros ya existentes pueden ser usados para expandir el proceso educativo convencional en el contexto de diversos paradigmas teóricos y modelos utilizados en el aprendizaje clásico. Pese a este desconocimiento, es innegable que los métodos de aprendizaje basados en la gamificación han conseguido una mayor implicación de los estudiantes y un mayor interés por el aprendizaje de nuevas materias\cite{ARGames_Gamification}.\\
+Los juegos en realidad aumentada, en el sector de la educación, tienen el potencial de abrir el camino a nuevas formas de aprendizaje y adquisición de conocimientos, cambiando así la experiencia del estudio. Aun así, todavía hay algunas dudas sobre cómo los juegos que utilizan la realidad aumentada y sus diseños se basan en géneros ya existentes pueden ser usados para expandir el proceso educativo convencional en el contexto de diversos paradigmas teóricos y modelos utilizados en el aprendizaje clásico. Pese a este desconocimiento, es innegable que los métodos de aprendizaje basados en la gamificación han conseguido una mayor implicación de los estudiantes y un mayor interés por el aprendizaje de nuevas materias.\cite{ARGames_Gamification}\\
+
+Un ejemplo de ello es la aplicación Elements 4D, surgida en Kickstarter, que proporciona una nueva visión de los elementos químicos y facilita el aprendizaje con una parte narrativa y otra jugable.
+
+\begin{figure}[H]
+     \centering
+     \includegraphics[width=0.7\textwidth]{Images/Figura-3-Elements-4D.png}
+     \caption{Juego educativo Elements 4D.}
+     \label{fig:Elemets}
+ \end{figure}
+ {\let\thefootnote\relax\footnote{{Imagen de la figura \ref{fig:Elemets} sacada de \url{https://www.researchgate.net/publication/317145820/figure/fig1/AS:498232876253185@1495799382235/Figura-3-Elements-4D-Fuente-http-crowdfundbeatcom.png}}}}
 
 \subsection{Arte}
 La gamificación es un término que se refiere a la mezcla de juegos con medios interactivos (como la realidad aumentada en este caso) para permitir la transformación de una tarea de aprendizaje u obtención de información digital en una experiencia divertida, accesible y que nos aporte los resultados que estábamos buscando.\\
 
-Uno de los principales inconvenientes que se nos ocurren al pensar en la gamificación aplicada al ámbito de el arte en realidad aumentada es que simplemente no existen demasiados ejemplos viables hasta la fecha, aunque sí encontramos aplicaciones con este potencial para la realidad virtual.
-Pese a esto, cabe destacar Membit\cite{MembitYT}, una aplicación fotográfica pública que utiliza la geolocalización del dispositivo. Permite a los usuarios tomar fotos de lugares en una determinada orientación espacial o colocar una imagen en el espacio. Para ver la imagen, el usuario accede a un canal o escanea la zona y se coloca desde la posición en que se tomó la captura. Este es un uso único de la realidad aumentada, que crea ventanas asíncronas de experiencias hacia el pasado del lugar en cuestión\cite{ARGames_Gamification}.
+Uno de los principales inconvenientes que se nos ocurren al pensar en la gamificación aplicada al ámbito de el arte en realidad aumentada es que simplemente no existen demasiados ejemplos viables hasta la fecha, aunque sí encontramos aplicaciones con este potencial para la realidad virtual.\\
+
+Pese a esto, cabe destacar Membit\cite{MembitYT}, una aplicación fotográfica pública que utiliza la geolocalización del dispositivo. Permite a los usuarios tomar fotos de lugares en una determinada orientación espacial o colocar una imagen en el espacio. Para ver la imagen, el usuario accede a un canal o escanea la zona y se coloca desde la posición en que se tomó la captura. Este es un uso único de la realidad aumentada, que crea ventanas asíncronas de experiencias hacia el pasado del lugar en cuestión.\cite{ARGames_Gamification}
+
+\begin{figure}[H]
+     \centering
+     \includegraphics[width=0.7\textwidth]{Images/membit2-22-2017-201702220310035.jpg}
+     \caption{Puertas al pasado de Membit.}
+     \label{fig:Membit}
+ \end{figure}
+ {\let\thefootnote\relax\footnote{{Imagen de la figura \ref{fig:Membit} sacada de \url{https://cached.imagescaler.hbpl.co.uk/resize/scaleWidth/614/cached.offlinehbpl.hbpl.co.uk/news/ORP/membit2-22-2017-201702220310035.jpg}}}}
 
 \subsection{Fabricación}
-La realidad aumentada es sin duda una herramienta que satisface a los usuarios y cada vez está más presente en nuestra vida cotidiana. La realidad aumentada en la industria es, hoy por hoy, un hecho.\\
-Gracias a este tipo de tecnología podemos mejorar el sector industrial y hablar de fábricas inteligentes donde prolifere la conexión entre máquinas y datos, y donde se presente la información al operario en diferentes soportes, que permitan mejorar su trabajo y productividad.\\ 
-Una de las principales aplicaciones en este terreno es la formación de los operarios mediante el uso de textos explicativos o imágenes que aparecen en realidad aumentada. Pero tampoco hay que alejarse mucho del ámbito doméstico, ya que nosotros mismos proponemos en nuestro capítulo dedicado al desarrollo de nuestras aplicaciones un manual de montaje de muebles en realidad aumentada, que facilita el entendimiento y mejora la experiencia a la hora de montar los muebles de la casa.\\
-Se puede observar en la figura \ref{fig:placenote} algunas de las aplicaciones en la industria, donde se puede señalar dónde hay una avería, o que hay que inspeccionar, muy útiles para compartir información entre trabajadores y no tener malentendidos.
-{\let\thefootnote\relax\footnote{{Imagen de la figura \ref{fig:placenote} sacada del canal de Youtube de Placenote SDK \cite{PlacenoteYT}}}}
+Con la constante mejora de la tecnología móvil y los múltiples avances en el campo de la realidad aumentada no sorprende la cantidad de aplicaciones con diferentes utilidades que podemos encontrar en el mercado. El sector industrial no es una excepción, siendo éste uno de los principales beneficiados por la evolución de este campo. \\
+
+En la actualidad, valiéndose de estos sistemas, ya podemos empezar a hablar de fábricas inteligentes que mejoran la transmisión de información entre las máquinas y los operarios y permiten una mejor gestión de los recursos y de los datos disponibles, mejorando así la eficiencia y la productividad de forma drástica. Un ejemplo de ello está en el diseño industrial: disponiendo de las diferentes piezas virtuales, la realización de prototipos y el intercambio de los diferentes componentes es sumamente rápido y no tiene ningún impacto sobre otros modelos. Pero sus aplicaciones en una fábrica también se extienden al mantenimiento de la misma o incluso a la seguridad laboral.\cite{Neosentec_Fab}\\ 
+
+Otra de las principales aplicaciones en este terreno es la formación de los operarios mediante el uso de textos explicativos o imágenes que aparecen en realidad aumentada. Pero tampoco hay que alejarse mucho del ámbito doméstico, ya que nosotros mismos proponemos en nuestro capítulo dedicado al desarrollo de nuestras aplicaciones un manual de montaje de muebles en realidad aumentada, que facilita el entendimiento y mejora la experiencia a la hora de montar los muebles de la casa.\\
+
+Se puede observar en la figura \ref{fig:placenote} algunas de las aplicaciones en la industria, donde se puede señalar dónde hay una avería, o que hay que inspeccionar, muy útiles para compartir información entre trabajadores y evitar malentendidos.
+
 \begin{figure}[H]
      \centering
      \includegraphics[width=0.7\textwidth]{Images/Placenote.jpg}
      \caption{Ejemplos de uso en la Fabricación.}
      \label{fig:placenote}
  \end{figure}
+ {\let\thefootnote\relax\footnote{{Imagen de la figura \ref{fig:placenote} sacada del canal de Youtube de Placenote SDK \cite{PlacenoteYT}}}}
 
 \subsection{Publicidad}
+No es ningún secreto que el objetivo primordial de la publicidad es vender un producto a un comprador concreto. Desde el principio de los tiempos la publicidad ha sido agresiva y vistosa, con el fin de llegar a un público mayor y sorprender al que la presencia para que se plantee si necesita lo que se le está vendiendo. En los días que vivimos la publicidad se vale de todos los recursos que tiene a su alcance para ampliar sus horizontes, y la tecnología de la realidad aumentada no es excepción. Los anuncios y aplicaciones de realidad aumentada son especialmente exitosos, ya que el usuario no sólo está viendo la publicidad, sino que es partícipe de ella y puede sumergirse en la experiencia con todos sus sentidos.\\
+
+Multitud de empresas han empezado a incorporar la realidad aumentada en sus diferentes anuncios. Un ejemplo de ello en el campo del motor son las aplicaciones de BMW, que permiten la interacción por parte de los clientes con modelos virtuales de sus productos, como coches u otros vehículos.\cite{Neosentec_Pub}\\
+
+Cabe destacar también la idea de Nike ID Augmented, surgida en 2016, que aunque tiene un concepto simple es tremendamente efectiva. Fue mostrada al público por primera vez en una Nike Store de París y utiliza una máquina a modo de proyector y una zapatilla en blanco. Mediante la interacción con un programa el usuario puede cambiar visualmente el diseño de la zapatilla e incluso crear el suyo propio sobre la marcha y admirar los resultados en el mundo real.
+
+\begin{figure}[H]
+     \centering
+     \includegraphics[width=0.7\textwidth]{Images/nikeaugmented-1.jpg}
+     \caption{Máquina Nike ID Augmented}
+     \label{fig:nikeAR}
+ \end{figure}
+ {\let\thefootnote\relax\footnote{{Imagen de la figura \ref{fig:nikeAR} sacada de (\url{https://icdn2.digitaltrends.com/image/digitaltrends/nikeaugmented-1.jpg})}}
+
 \subsection{Turismo}
-Construir una experiencia de realidad aumentada aplicada al turismo es esencial para el éxito de un destino. El crecimiento en el sector turístico no solo es debido al gran interés cultural y a la gran oferta de ocio que existe, sino también a la velocidad en la que progresa la tecnología y, en particular, la realidad aumentada.\\
-Los viajeros pueden interactuar con su entorno gracias a las aplicaciones de turismo de realidad aumentada. De esta forma no sólo están en una localización, sino que se pueden integrar en ella, ya que la realidad aumentada puede crear escenarios que de otra manera sería imposible generar, por ejemplo, recreando edificios o monumentos que en la actualidad ya no existen o están derrumbados.\\
-Otra de las aplicaciones más útiles del sector es el traductor de Google, permite traducir un texto con simplemente enfocar a el con la cámara. Como podemos observar en la figura \ref{fig:googletranslate}, su uso es muy cómodo, sobretodo para los idiomas que no utilizan nuestro alfabeto, ya que no hace falta escribir el texto extranjero.
+En los últimos años hemos podido encontrar un gran aumento en el desarrollo de aplicaciones de realidad aumentada. Esto se debe principalmente a que la tecnología cada vez es mejor, más barata y accesible, y permite disfrutar de este campo a muchas más personas y de una forma más directa e intuitiva. Precisamente es necesario diseñar aplicaciones intuitivas y sencillas si van a ir dirigidas a un público que no esté habituado al mundo digital; como es en el caso de las aplicaciones de realidad aumentada en el sector del turismo.\cite{Neosentec_Tur}\\
+
+Existen multitud de maneras en las que el usuario puede interactuar con el entorno en estas aplicaciones. Con esto el turista además de estar físicamente en un destino también puede interactuar con él, haciendo más completa su experiencia y obteniendo información o fuentes de ocio que de otras maneras habrían pasado inadvertidas. A día de hoy ya existen lugares como parques de atracciones que se valen de esta tecnología para guiar a los usuarios por el recinto y les ofrecen diferentes actividades y juegos para que su experiencia sea inolvidable.\\
+
+Por supuesto, la realidad aumentada presenta otro beneficio primordial a la hora de viajar a otro país con una lengua diferente a la nuestra. Existen aplicaciones que con el uso de la cámara traducen en tiempo real carteles y cualquier tipo de texto de un idioma a otro. Como podemos observar en la figura \ref{fig:googletranslate}, su uso es muy cómodo, sobretodo para los idiomas que no utilizan nuestro alfabeto, ya que no hace falta escribir el texto extranjero. Esto resulta increíblemente rápido y eficaz a la hora de obtener información y sin duda mejorará la experiencia turística en destinos internacionales.
 
 \begin{figure}[H]
      \centering
      \includegraphics[width=0.7\textwidth]{Images/google-translate.jpg}
-     \caption{Google Traductor en RA. Imágenes sacadas de (\url{https://www.muyinteresante.es/tecnologia/articulo/el-nuevo-google-translate-traduce-imagenes-y-voz-211421238921})}
+     \caption{Google Traductor en RA.}
      \label{fig:googletranslate}
  \end{figure}
+ {\let\thefootnote\relax\footnote{{Imagen de la figura \ref{fig:googletranslate} sacada de (\url{https://www.muyinteresante.es/tecnologia/articulo/el-nuevo-google-translate-traduce-imagenes-y-voz-211421238921})}}
 
 
 \subsection{Videojuegos}
+El sector del ocio electrónico es en la actualidad más grande de lo que nunca ha sido. Se sabe que el dinero que mueve es mayor al que suman las industrias cinematográfica y discográfica juntas, y no sorprende a nadie el hecho de que la realidad aumentada haya encontrado aquí el nido perfecto en el que asentarse y desarrollarse.\\
 
+El auge de la industria del videojuego viene impulsado en los últimos años por la accesibilidad de los móviles y el desarrollo de juegos para estos dispositivos. De hecho, la aplicación que permitió el boom de la realidad aumentada fue Pokémon Go en 2016, que se convirtió en un fenómeno mundial durante el verano de dicho año y que este año ha experimentado otro pico de jugadores que no se alcanzaba desde su lanzamiento. Una de las claves de su éxito fue innegablemente basarse en la archiconocida franquicia, sin embargo, cada ciertos años sale al mercado una nueva entrega de la saga principal en las consolas de Nintendo y no logra la difusión y fiebre masiva que sí consiguió esta aplicación; lo que nos sugiere que la realidad aumentada y la accesibilidad también son decisivos en el entusiasmo del público.\\
+
+\begin{figure}[H]
+     \centering
+     \includegraphics[width=0.7\textwidth]{Images/evento-pokemon-5.jpg}
+     \caption{Captura del juego Pokémon Go}
+     \label{fig:pokemonGo}
+ \end{figure}
+ {\let\thefootnote\relax\footnote{{Imagen de la figura \ref{fig:pokemonGo} sacada de (\url{https://elandroidelibre.elespanol.com/wp-content/uploads/2017/02/evento-pokemon-5.jpg})}}
+
+Como hemos comentado antes, la gamificación de otros sectores como la educación es una realidad, y muchos de los juegos que vemos en estos ámbitos se valen de la realidad aumentada para proporcionar al usuario una experiencia de aprendizaje nueva y más satisfactoria.\\
+
+El futuro en este campo es sin ninguna duda de los más prometedores, puesto que un alto porcentaje de los jugadores afirma que si se llegase a prescindir de las pantallas de dispositivos móviles para el despliegue de aplicaciones en realidad aumentada y se utilizasen visores más pequeños y cómodos de alta durabilidad y precio asequible, no dudarían en utilizar esta tecnología en su tiempo de ocio habitual.
 
 \subsection{Comercios electrónicos(ecommerce)}
 Los probadores virtuales están marcando tendencia en las nuevas generaciones de aplicaciones y estrategias de venta. Estas aplicaciones hacen uso de la realidad aumentada con tecnologías como el reconocimiento de rostros, reconocimiento de superficies, estimación de luces… Siendo punto de referencia en el mercado los siguientes ejemplos. 
@@ -175,7 +241,5 @@ Aplicación que permite al usuario maquillarse con los productos de L’Oreal en
     \label{fig:Loreal}
 \end{figure}
 \end{enumerate}
-\section{Experiencia de usuario en aplicaciones de RA sin marcadores}
-\clearpage
-\section{
+
 \noindent

@@ -1,6 +1,6 @@
 
 \chapter{Comparación y análisis de las librerías}
-
+\renewcommand{\thefootnote}{\arabic{footnote}}
 El análisis de las librerías se estructurará en los puntos que se describen a continuación:
 \begin{itemize}
 \item Calidad de la documentación y primeros pasos: en este punto evaluaremos la dificultad para realizar una aplicación básica con cada librería, desde el momento en el que se descarga el SDK, hasta que se construye la APK. 
@@ -18,7 +18,11 @@ Para realizar la evaluación de las capacidades y los límites de cada librería
 \item Alejarnos del objeto y ver hasta que distancia sigue funcionando.
 \item Comprobar cómo se comportan las librerías con diferentes intensidades de luz.
 \end{itemize}
-Los vídeos se encuentran aquí: \url{ https://www.youtube.com/playlist?list=PLqQgTAUiabc8AQrcc48Jdglnytus9IoXe}
+
+Las aplicaciones y desarrollo de las pruebas se encuentran almacenadas en el repositorio: \url{https://github.com/ar-tfg/DemosLibrerias}.
+
+Los vídeos de las evaluaciones se encuentran almacenados en la siguiente lista de reproducción de Youtube \url{ https://www.youtube.com/playlist?list=PLqQgTAUiabc8AQrcc48Jdglnytus9IoXe}
+
 \clearpage
 \section{Wikitude}
 
@@ -30,7 +34,8 @@ La experiencia al crear una aplicación usando Wikitude es buena. Te guían desd
 
 La sala está únicamente iluminada por un haz de luz perteneciente a una habitación situada al otro lado del pasillo.\\
 
-Consigue instanciar el objeto dentro de un plano y posee buena iluminación. El plano falla cuando empezamos a movernos haciendo un giro de 45º no esperado, si estamos encima del modelo se pierde, si damos la vuelta completa sigue perdido. Necesitamos volver a referenciarlo por que no se recupera. La calidad del modelo y su textura es óptima para las condiciones de luz que posee. Se pierde la referencia fácilmente ante los giros. Cuando se realiza un movimiento de cámara en el que el punto de anclaje sale del \textit{frustrum}\footnote{Región cerrada del espacio que delimita los objetos que aparecen representados en la pantalla.}  y más tarde se vuelve a enfocar a él, tarda un segundo en volver a posicionar el plano y su objeto. En esta primera prueba no hemos conseguido que pierda la referencia por distancia, se repetirá con un escenario más amplio. Hace estimaciones con oclusión desapareciendo con la pared.\\
+Consigue instanciar el objeto dentro de un plano y posee buena iluminación. El plano falla cuando empezamos a movernos haciendo un giro de 45º no esperado, si estamos encima del modelo se pierde, si damos la vuelta completa sigue perdido. Necesitamos volver a referenciarlo por que no se recupera. La calidad del modelo y su textura es óptima para las condiciones de luz que posee. Se pierde la referencia fácilmente ante los giros. Cuando se realiza un movimiento de cámara en el que el punto de anclaje sale del \textit{frustrum}
+\footnote{Región cerrada del espacio que delimita los objetos que aparecen representados en la pantalla.}  y más tarde se vuelve a enfocar a él, tarda un segundo en volver a posicionar el plano y su objeto. En esta primera prueba no hemos conseguido que pierda la referencia por distancia, se repetirá con un escenario más amplio. Hace estimaciones con oclusión desapareciendo con la pared.\\
 
 \textbf{Condiciones de luz ambiente:}
 
@@ -110,7 +115,7 @@ Como hemos comprobado anteriormente, en unas condiciones de luz mínimas el trab
 \subsection{Calidad de la documentación y primeros pasos}
 Hacer funcionar una aplicación con ARCore es tan fácil como descargar el SDK desde su Github oficial \cite{Github_Google}, añadir una de las escenas de ejemplo a la build, seleccionar dentro de Unity3D la opción de ``Player Settings -> XR Settings -> ARCore Supported''.Para probar la realidad aumentada con ARCore no hace falta registrarse ni obtener ninguna licencia para que funcione, exceptuando el uso de los \textit{Cloud Anchors}, en el siguiente capítulo explicaremos cómo activarlos. La documentación de los pasos a seguir y de la API es bastante completa, además es de que al ser una de las librerías más usadas en la comunidad, hay muchos tutoriales en el que puedes aprender sobre ella. Para facilitar el desarrollo de aplicaciones con ARCore, Google ha desarrollado una aplicación \textit{ARCore Instant Preview}, la cual se engancha vía USB o Wifi con el editor de Unity3D, y permite probar las aplicaciones en el teléfono sin necesidad de generar una APK.
 \subsection{Evaluación de las capacidades de la librería}
-\subsubsection{Condiciones de luz mínimas:}\\
+\subsubsection{Condiciones de luz mínimas:}
 \textbf{Esta prueba está disponible en el link:} \url{https://youtu.be/uSRztU8z18U}\\
 La sala está únicamente iluminada por un haz de luz perteneciente a una habitación situada al otro lado del pasillo y una pequeña iluminación frontal.\\
 
@@ -188,7 +193,7 @@ Los resultados obtenidos con Vuforia no son los esperados ya que se trata de una
 \section{Kudan}
 \subsection{Calidad de la documentación y primeros pasos}
 Los primeros pasos con Kudan no son tan gratificantes en comparación a sus competidores. Empezando por la descarga del SDK, ésta ni si quiera se encuentra en la página oficial \cite{Kudan_Official}, si no que se encuentra en XLSoft \cite{Kudan}. Una vez metido el SDK en Unity, en las carpetas vienen escenas de ejemplo, en las que podemos ver como se monta una aplicación con Kudan. La librería está protegida por \textit{App ID} (identificador de aplicación), contactando con los desarrolladores de Kudan puedes obtener una clave de licencia para cualquier \textit{Package Name}, sin embargo, proporcionan una general con la que podemos desarrollar ``com.xlsoft.kudanar''. \cite{Kudan_License}La documentación para los primeros pasos es aceptable, pero sobre el SDK y la API no hay documentación, únicamente los comentarios en los scripts. Una vez instalada la aplicación en el teléfono, seguramente no funcione ya que la aplicación no pide los permisos para usar la cámara, y sin ellos Kudan no puede inicializarse. Para arreglar este error, hace falta añadir en algún script esta línea de código "Permision.RequestUserPermission(Permission.Camera)'', que se encuentra en el paquete "UnityEngine.Android''.
-\subsection{Evaluación de las capacidades de la librería}\\
+\subsection{Evaluación de las capacidades de la librería}
 \subsubsection{Condiciones de luz mínimas:}
 
 \textbf{Esta prueba está disponible en el link:}\url{https://youtu.be/cLJMyV9bV6s}
@@ -268,13 +273,13 @@ Apenas necesita tiempo para posicionar el ancla, no hay que esperar a que recono
 \subsection{Calidad de la documentación y primeros pasos}
 Para desarrollar aplicaciones de realidad aumentada con 8thWall, es necesario registrarse en su página web \cite{8thWall}, descargar el SDK, y generar una clave de licencia, que tendremos que especificar en el objeto ``XRAppSettings'' que se encuentra dentro del paquete de Unity3D. Estos pasos vienen bien documentados en la guía que proporcionan, por lo que la calidad de la documentación es buena, también en la parte de la API. Tienen tutoriales subidos en los que enseñan y explican cómo desarollar aplicaciones con su SDK. En los dispositivos que se encuentran en la lista de ARCore \cite{ARCoreList}, 8thWall usa ARCore para la tecnología de realidad aumentada. Para los que no se encuentran en esa lista, tienen su propia tecnología, que no funciona tan bien,pero por lo menos permite cubrir un rango muy amplio de dispositivos soportados. Para facilitar el desarrollo, han creado una aplicación para probar en el móvil desde el editor de Unity3D, llamada \textit{8th Wall XR Remote}, que se puede encontrar en \textit{Google Play} \cite{8thWallRemote}.
 \subsection{Evaluación de las capacidades de la librería}
-\subsubsection{Condiciones de luz mínimas:}\\
+\subsubsection{Condiciones de luz mínimas:}
 \textbf{Esta prueba está disponible en el link:}\url{https://youtu.be/6edM5PhhXj0}\\
 La sala está únicamente iluminada por un haz de luz perteneciente a una habitación situada al otro lado del pasillo.\\
 
 El nivel de luz de la sala supone un problema para posicionar el modelo con lo que aumentamos el nivel de luz. La calidad de las texturas del objeto son buenas, además posee estimación de iluminación sobre el modelo correcta y muy eficaz. El anclaje alrededor del objeto con movimientos suaves es muy buena pudiendo dar una vuelta sin problema y acercarnos para ver el detalle del dragón sin que desaparezca. No conseguimos perderlo con la distancia en ningún momento. La capacidad de soportar movimientos bruscos es muy resistente, nunca se pierde y su anclaje sigue en la posición correcta. Al sacarlo del campo de visión lo mantiene creando una transición suave. 
 
-\subsubsection{Condiciones de luz ambiente:}\\
+\subsubsection{Condiciones de luz ambiente:}
 \textbf{Esta prueba está disponible en el link:}\url{https://youtu.be/5TBd3ml35RY}\\
 
 La detección del plano es muy rápida. Mantiene y mejora la calidad de las texturas del objeto, así como la estimación de iluminación. El anclaje alrededor del objeto con movimientos suaves es muy buena pudiendo dar una vuelta sin problema y acercarnos para ver el detalle del dragón sin que desaparezca. No conseguimos perderlo con la distancia en ningún momento. La capacidad de soportar movimientos bruscos y movimientos fuera del campo de visión continua siendo muy resistente.
@@ -305,14 +310,14 @@ Aunque por debajo utilice la misma tecnología que ARCore, la capa que han desar
 Es necesario registrarse para acceder a la descarga del SDK y generar una clave de licencia. Una vez importado el paquete dentro de Unity, hay que buscar el objeto ``EasyARKey'' y especificar la clave. Las escenas que vienen de ejemplo no son del todo intuitivas ni modificables, ya que para cambiar el objeto que se instancia hay que entrar y hacer unos cambios en el código, lo ideal sería poder cambiarlo desde el editor. La documentación es mejorable, solo tienen una guía para hacer la \textit{Build} en cada plataforma, pero no hay ninguna guía que explique como crear una aplicación desde cero, ni explican cuales son las clases y componentes importantes e inprescindibles.
 
 \subsection{Evaluación de las capacidades de la librería}
-\subsubsection{Condiciones de luz mínimas:}\\
+\subsubsection{Condiciones de luz mínimas:}
 \textbf{Esta prueba está disponible en el link:}\url{https://youtu.be/G_iY6gdoMOU}\\
 
 La sala está únicamente iluminada por un haz de luz perteneciente a una habitación situada al otro lado del pasillo.\\
 
 Coloca el modelo enfrente del usuario automáticamente sin buscar ningún plano de referencia. La estabilidad del objeto es muy mala ya que no nos podemos acercar porque el objeto también se mueve con el usuario, lo mismo ocurre al intentar dar la vuelta sobre él. La calidad de texturas es aceptable y no posee estimación de luz. La resistencia a movimientos bruscos es buena, nunca se deja de ver el objeto y se mantiene en su posición; lo mismo ocurre al sacarlo del campo de visión.
 
-\subsubsection{Condiciones de luz ambiente:}\\
+\subsubsection{Condiciones de luz ambiente:}
 \textbf{Esta prueba está disponible en el link:}\url{https://youtu.be/rA2uLYET5ck}\\
 
 Continúan apareciendo los problemas sin podernos acercar al modelo ni dar la vuelta correctamente. Además aparece un nuevo problema dónde la aplicación hace uso de muchos recursos generando un \textit{framerate}\footnote{Frecuencia a la cual un dispositivo muestra los fotogramas} muy bajo, por debajo de los 30 fotogramas por segundo. Mejora su capacidad de resistir movimientos bruscos. EL resultado de la prueba de sacar el objeto fuera del campo de visión también es bueno, es capaz de mantener la referencia de la posición.
@@ -345,14 +350,14 @@ Usar ARFoundation es muy cómodo, ya viene integrado en Unity, simplemente hay q
 
 
 \subsection{Evaluación de las capacidades de la librería}
-\subsubsection{Condiciones de luz mínimas:}\\
+\subsubsection{Condiciones de luz mínimas:}
 \textbf{Esta prueba está disponible en el link:}\url{https://youtu.be/MrYmYtdJKrY}\\
 
 La sala está únicamente iluminada por un haz de luz perteneciente a una habitación situada al otro lado del pasillo.\\
 
 El nivel de luz de la sala no supone ningún problema para posicionar el modelo y reconocer el plano. La calidad de las texturas del objeto son notables, además existe estimación de iluminación sobre el modelo pero no es del todo correcta. El anclaje alrededor del objeto con movimientos suaves es buena nos podemos acercar y alejar manteniendo el nivel de detalle. No conseguimos perderlo con la distancia. La capacidad de soportar movimientos bruscos es casi perfecta ya que no desaparece el modelo, pero a veces se mueve un poco recolocándose en un breve período de tiempo. Al sacarlo del campo de visión lo mantiene en su posición.
 
-\subsubsection{Condiciones de luz ambiente:}\\
+\subsubsection{Condiciones de luz ambiente:}
 \textbf{Esta prueba está disponible en el link:}\url{https://youtu.be/y3jS70BuPck}\\
 
 La calidad de la iluminación y de la textura es bastante buena, por lo que da una impresión de realismo. La estabilidad del punto de anclaje es perfecta, podemos dar la vuelta completamente, acercarnos para ver el más mínimo detalle sin que el modelo se desplace ni se deje de ver. La resistencia a los movimientos bruscos es perfecta, no desaparece nunca el modelo ni se mueve de su posición inicial, ocurre igual con la prueba de sacarlo del \textit{frustum}, el dragón permanece en su posición y permite una transición limpia y natural cuando se vuelve a enfocar a su punto de anclaje.
@@ -451,7 +456,7 @@ Este apartado consistirá en dos apartados, en la primera compararemos en que pl
     \begin{tabular}{|c|c|c|c|c|c|c|c|}
     \hline
        SDK &	Unity3D (Android, iOS) &	Unreal Engine 4 &	Java &	Objective-C &	C++ & JavaScript \\
-       \hline
+       \hline0
 Wikitude & \checkmark & – & \checkmark & \checkmark & – & \checkmark \\
 \hline
 ARKit & \checkmark & \checkmark & – & \checkmark & – & – \\
@@ -490,7 +495,7 @@ Con esta tabla, es muy fácil ver que Unity3D sale ganador, podemos trabajar con
      \hline
          Calidad de la documentación 	& 10 & 9 & 9 & 8 &2 & 9 & 9 &  7 & 8 \\
   \hline
-Estabilidad del punto de anclaje 		& 6 & 10 & 10 & 10 & 7 & 6 &  10  & 3 & 10 \\
+Estabilidad del punto de anclaje 		& 6 & 10 & 10 & 7 & 7 & 6 &  10  & 3 & 10 \\
  \hline
 Comportamiento con luz ambiente   & 6 & 10 & 10& 7 & 6 & 7 & 10  & 5 & 10\\
  \hline
@@ -505,5 +510,44 @@ Total (puntuación) & 6,2 & 9,6 & 9,6  & 6,6 &    3,6   &   5,4     &  9,4     &
     \caption{Análisis de las características de las librerías de RA sin marcadores}
     \label{tab:my_label}
 \end{table}
-Falta la conclusion final...
+
+Una vez probadas y comparadas todas las aplicaciones de carácter básico de las librerías, es evidente que ARKit y ARCore son claros ganadores a nivel general, pero entraremos en detalle para ver las funcionalidades y limitaciones de cada una, por lo que vamos a definir nuestra opinión sobre su uso\\
+
+Lo primero que podemos observar es que las librerías que usan detección de planos tienen una precisión y estabilidad increíble, permitiendo un paseo libre por el entorno sin que el ancla presente ningún desplazamiento o cambio de escala. Por el otro lado, tenemos las librerías que utilizan \textit{instant tracking}, aunque su resistencia a movimientos bruscos y a giros sea muy buena en algunos casos, la estabilidad del punto de anclaje cuando nos movemos, ya sea para acercarnos o para rodearlo, es bastante pobre.\\
+
+Para instanciar un objeto, cuando se utiliza la detección de planos, la librería necesita información previa antes de fijar el ancla, es decir, tiene que reconocer el entorno y alguna superficie,este proceso, según el nivel de luz y la calidad del dispositivo, puede tardar varios segundos. Por el contrario, el \textit{instant tracking} puede instanciar el objeto en el momento que se abre la aplicación, sin necesidad de tener información previa, hasta hay una librería (EasyAR) que no necesita la cámara para funcionar, por lo que el nivel de luz no le afecta y se podría usar en un entorno completamente oscuro.\\
+
+Si queremos realizar una aplicación donde la estabilidad y precisión del ancla sea estricta, lo mas sensato es optar por usar la tecnología de detección de planos. Además de la exactitud que proporcionan estas librerías, también implementan la estimación de luz, la cual aporta una pincelada de realismo muy importante para la experiencia inmersiva. Las limitaciones de esta tecnología vienen dadas por el entorno, ya sea por el espacio libre que haya para reconocer un plano, por el nivel de luz, por el tipo de superficie, porque si la superficie es de color liso, seguramente haya dificultades para reconocer el plano, y finalmente debido al alto coste computacional, la cantidad de dispositivos soportados.\\
+
+Los puntos fuertes de las librerías que utilizan \textit{instant tracking} suplen las limitaciones vistas anteriormente. Su uso es recomendado para cuando la aplicación está pensada para ser usada en cualquier entorno, sin depender ni del nivel de luz ni de la superficie que nos rodea, y para cuando no sea necesario moverse en el entorno. 
+
+
+-Instant traking - funciona sin cámara juegas en cualquier sitio pero es menos estable
+	no se puede rodear para juegos como el dragón se puede utilizar, movimientos bruscos aguantan muy bien decir cual, aplicaciones pensados en ser usados desde un mismo punto sin movernos en posición pero si queremos movernos o rodearlo necesitamos detección de planos.
+    
+-Detección de planos mucho mas exacto, necesita espacio, luz y un período de reconocimiento. El pokemon Go es instant traking.
+
+- Está en menos dispositivos, por el momento como manera de llegar a masas sería mejor instant traking.
+
+Luces ARkit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \noindent
