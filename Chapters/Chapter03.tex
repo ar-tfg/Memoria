@@ -34,7 +34,7 @@ La experiencia al crear una aplicación usando Wikitude es buena. Te guían desd
 
 La sala está únicamente iluminada por un haz de luz perteneciente a una habitación situada al otro lado del pasillo.\\
 
-Consigue instanciar el objeto dentro de un plano y posee buena iluminación. El plano falla cuando empezamos a movernos haciendo un giro de 45º no esperado, si estamos encima del modelo se pierde, si damos la vuelta completa sigue perdido. Necesitamos volver a referenciarlo por que no se recupera. La calidad del modelo y su textura es óptima para las condiciones de luz que posee. Se pierde la referencia fácilmente ante los giros. Cuando se realiza un movimiento de cámara en el que el punto de anclaje sale del \textit{frustrum}
+Consigue instanciar el objeto dentro de un plano y posee buena iluminación. El plano falla cuando empezamos a movernos haciendo un giro de 45º no esperado, si estamos encima del modelo se pierde, si damos la vuelta completa sigue perdido. Necesitamos volver a referenciarlo por que no se recupera. La calidad del modelo y su textura es óptima para las condiciones de luz que posee. Se pierde la referencia fácilmente ante los giros. Cuando se realiza un movimiento de cámara en el que el punto de anclaje sale del \textit{frustum}
 \footnote{Región cerrada del espacio que delimita los objetos que aparecen representados en la pantalla.}  y más tarde se vuelve a enfocar a él, tarda un segundo en volver a posicionar el plano y su objeto. En esta primera prueba no hemos conseguido que pierda la referencia por distancia, se repetirá con un escenario más amplio. Hace estimaciones con oclusión desapareciendo con la pared.\\
 
 \textbf{Condiciones de luz ambiente:}
@@ -43,7 +43,7 @@ Consigue instanciar el objeto dentro de un plano y posee buena iluminación. El 
 
 La sala está únicamente iluminada por dos ventanas a la luz de la tarde.\\
 
-Consigue instanciar el objeto dentro de un plano y posee buena iluminación. El plano falla cuando empezamos a movernos haciendo de nuevo un giro de 45º no esperado, si estamos encima del modelo se pierde pero en este caso se recupera con cierta facilidad. Podemos acercarnos bastante manteniendo el nivel de detalle. La calidad del modelo y su textura es óptima para las condiciones de luz que posee. Se pierde la referencia fácilmente ante los giros. Cuando se realiza un movimiento de cámara en el que el punto de anclaje sale del \textit{frustrum} y más tarde se vuelve a enfocar a él, tarda menos de un segundo en volver a posicionar el plano y su objeto. En esta primera prueba no hemos conseguido que pierda la referencia por distancia. Hace estimaciones con oclusión desapareciendo con la pared.
+Consigue instanciar el objeto dentro de un plano y posee buena iluminación. El plano falla cuando empezamos a movernos haciendo de nuevo un giro de 45º no esperado, si estamos encima del modelo se pierde pero en este caso se recupera con cierta facilidad. Podemos acercarnos bastante manteniendo el nivel de detalle. La calidad del modelo y su textura es óptima para las condiciones de luz que posee. Se pierde la referencia fácilmente ante los giros. Cuando se realiza un movimiento de cámara en el que el punto de anclaje sale del \textit{frustum} y más tarde se vuelve a enfocar a él, tarda menos de un segundo en volver a posicionar el plano y su objeto. En esta primera prueba no hemos conseguido que pierda la referencia por distancia. Hace estimaciones con oclusión desapareciendo con la pared.
 
 \begin{table}[H]
     \centering
@@ -69,6 +69,7 @@ A pesar de ser una de las librerías pioneras en el sector, los resultados obten
 \clearpage
 \section{ARKit}
 \subsection{Calidad de la documentación y primeros pasos}
+La documentación de ARKit es muy extensa y detallada y con una comunidad amplia y activa favoreciendo el desarrollo de aplicaciones con esta tecnología. En el caso de ARKit para Unity existe un plugin que permite desarrollar en esta plataforma una aplicación con ARKit, para hacer funcionar este SDK es tan sencillo como añadirlo desde el gestor de paquetes de Unity y comenzar a desarrollar, desde una escena vacía o desde el ejemplo aportado por el SDK. La documentación de los primeros pasos es una excelente guía para el conocimiento de la librería y el posterior desarrollo.
 
 \subsection{Evaluación de las capacidades de la librería}
 
@@ -341,7 +342,7 @@ Continúan apareciendo los problemas sin podernos acercar al modelo ni dar la vu
     \label{tab:EasyAR}
 \end{table}
 \subsection{Conclusiones}
-Aunque la estabilidad del punto de anclaje no sea bueno, la librería instancia el objeto sin buscar un plano, de hecho no utiliza la cámara, únicamente hace uso del giroscopio y del compás digital. El uso que se le podría dar a esta librería es para una aplicación que esté pensado para usarse sin moverse del sitio, da igual las condiciones de luz, la resistencia a los movimientos bruscos es muy buena, al igual que la reposición del objeto cuando se sale del campo de visión de la cámara y luego vuelve.
+Aunque la estabilidad del punto de anclaje no sea bueno, la librería instancia el objeto sin buscar un plano, de hecho no utiliza la cámara, únicamente hace uso del giroscopio y del compás digital. El uso que se le podría a dar a esta librería a es para una aplicación que esté pensado para usarse sin moverse del sitio, da igual las condiciones de luz, la resistencia a los movimientos bruscos es muy buena, al igual que la reposición del objeto cuando se sale del campo de visión de la cámara y luego vuelve.
 
 \clearpage
 \section{ARFoundation}
@@ -385,28 +386,28 @@ Sin duda es una de las opciones más óptimas para desarrollar una aplicación d
 
 \clearpage
 \section{ARToolKit}
-Información de la librería, desarrollo de HolaMundo y conclusiones
+Información de la librería, desarrollo de HolaMundo y conclusiones.\\
 En nuestros primeros pasos en el mundo de la realidad aumentada exploramos algunas librerías como ARToolKit, con el fin de familiarizarnos con el desarrollo de este tipo de aplicaciones.\\
 
 ARToolKit es una de las librerías de desarrollo pioneras en el ámbito que investigamos, disponible desde el año 2004 para descargar de manera gratuita y que cuenta con más de 160.000 descargas desde entonces. Se distribuyó para diversas plataformas como SGI IRIX (que dejó de utilizarse en 2006), Linux, MacOS y Windows y fue desarrollada originalmente por el Dr. Hirokazu Kato para posteriormente pasar a manos del Human Interface Technology Laboratory en la Universidad de Washington, la de Nueva Zelanda y ARToolworks.Inc en Seattle.\\
 
-Muchas librerías posteriores se han basado en el código de ésta para ampliar sus funcionalidades, dando lugar a algunas como ARTag (que promete mayor fiabilidad a la hora de procesar imágenes por su mejor manejo de la luz), FLARToolKit (consistente en un port en ActionScript 3), ARDesktop (que facilita la creación de interfaces) o Studierstube Tracker (que mejora sus características, pero deja de ser de código abierto).\\
+Muchas librerías posteriores se han basado en el código de ésta para ampliar sus funcionalidades, dando lugar a algunas como ARTag (que promete mayor fiabilidad a la hora de procesar imágenes por su mejor manejo de la luz), FLARToolKit (consistente en un \textit{port} en ActionScript 3), ARDesktop (que facilita la creación de interfaces) o\textit{ Studierstube Tracker} (que mejora sus características, pero deja de ser de código abierto).\\
 Además de todas las derivaciones de ARToolKit, también podemos encontrar software no orientado a programadores como ATOMIC Authoring Tool, que permitía a cualquier usuario el desarrollo de una aplicación de realidad aumentada de manera sencilla y con una interfaz intuitiva. Esta herramienta acabó cayendo en desuso a principios de la década de 2010 debido a que ya existían librerías mejores que ARToolKit y mejores alternativas en lo que a SDK se refiere.\\
 
 Al ser ARToolKit una de las primeras herramientas para el desarrollo de realidad aumentada, no contemplaba un uso de esta sin marcadores. Una de las mayores dificultades a las que se enfrentó fue el seguimiento del “ojo” del usuario, es decir, el foco de la cámara del dispositivo. Para saber desde qué perspectiva debía dibujar los elementos virtuales la aplicación necesitaba saber a dónde está mirando el usuario en el mundo real. La librería solventa este problema utilizando algoritmos de visión que calculan la localización y orientación de la cámara basándose en marcadores físicos en tiempo real.
 Los marcadores que es capaz de identificar consisten en la mayoría de los casos en un cuadrado negro bien contrastado con un fondo e interior blancos. Además, cada marcador, para diferenciarse del resto incluye pequeñas variaciones como otras figuras geométricas dentro del cuadrado.\\
 
-Para nuestros experimentos con ARToolKit, en lugar de utilizar la librería original, utilizamos un port de la misma para ser utilizada en Unity, que puede encontrarse actualmente en https://github.com/artoolkit/arunity5. Esta extensión nos permite el acceso a componentes como ARController y ARMarker dentro del editor.\\
+Para nuestros experimentos con ARToolKit, en lugar de utilizar la librería original, utilizamos una adaptación de la misma para ser utilizada en Unity3D, que puede encontrarse actualmente en \url{https://github.com/artoolkit/arunity}. Esta extensión nos permite el acceso a componentes como \textit{ARController} y \textit{ARMarker} dentro del editor.\\
 
-Para el desarrollo de este “HolaMundo” con ARToolKit en Unity hemos seguido los siguientes pasos: creamos un gameObject  que servirá como “raíz” de la escena y otro que actuará como mánager del sistema de realidad aumentada. Al mánager le incluimos el componente ARController, que está encargado de las opciones de video y del seguimiento de los marcadores. Dentro de éste modificamos la Layer a la que debe prestar atención. \\
+Para el desarrollo de este “HolaMundo” con ARToolKit en Unity hemos seguido los siguientes pasos: creamos un \textit{gameObject}\footnote{Objeto de Unity3D}  que servirá como “raíz” de la escena y otro que actuará como mánager del sistema de realidad aumentada. Al mánager le incluimos el componente \textit{ARController}, que está encargado de las opciones de vídeo y del seguimiento de los marcadores. Dentro de éste modificamos la capa a la que debe prestar atención. \\
 
-Por otra parte, el objeto raíz de la escena incluye la luz direccional y la cámara, y además le añadimos el script AROrigin, que permite situar espacialmente la escena. La cámara, además de su script de cámara recibe un ARCamera para poder detectar los marcadores.\\
+Por otra parte, el objeto raíz de la escena incluye la luz direccional y la cámara, y además le añadimos el script \textit{AROrigin}, que permite situar espacialmente la escena. La cámara, además de su script de cámara por defecto, debe recibir el componente \textit{ARCamera} para poder detectar los marcadores.\\
 
-Ahora creamos un objeto que llevará la información del marcador y le añadimos el componente ARMarker, que lleva el tag del marcador que hace las veces de identificador único. Este componente tiene dos tipos de patrones para identificar por defecto: \textit{hiro} y \textit{kanji}. En este caso utilizaremos el patrón \textit{hiro}, que es el que consiste en un cuadrado negro simple.\\
+Ahora hay que crear un objeto que llevará la información del marcador y le añadimos el componente \textit{ARMarker}, que lleva la etiqueta del marcador que hace de identificador único. Este componente tiene dos tipos de patrones para identificar por defecto: \textit{hiro} y \textit{kanji}. En este caso utilizaremos el patrón \textit{hiro}, que es el que consiste en un cuadrado negro simple.\\
 
 Añadimos a la raíz de la escena un objeto que será contenedor del objeto 3D que queremos que aparezca cuando enfocamos al marcador y que lleva el script \textit{ARTrackedObject} y dentro del campo ``Marker Tag'' introducimos el identificador del marcador asociado al objeto.\\
 
-Conclusiones: si bien este sistema fue útil en su día para sentar las bases del desarrollo de programas en realidad aumentada, hoy en día no tiene mucho sentido su uso. No se encuentra  documentación actualizada para su uso y la página web que le daba soporte ha desaparecido \cite{artoolkit_web}. Además, sus funcionalidades son muy limitadas y su rendimiento es muy inferior al que presentan otras alternativas más actuales como Vuforia, que permite también el uso de marcadores.\\
+Conclusiones: si bien este sistema fue útil en su día para sentar las bases del desarrollo de programas en realidad aumentada, hoy en día no tiene mucho sentido su uso. No se encuentra  documentación actualizada  y la página web que le daba soporte ha desaparecido \cite{artoolkit_web}. Además, sus funcionalidades son muy limitadas y su rendimiento es muy inferior al que presentan otras alternativas más actuales como Vuforia, que permite también el uso de marcadores.\\
 
 \clearpage
 \section{Evaluación}
@@ -456,7 +457,7 @@ Este apartado consistirá en dos apartados, en la primera compararemos en que pl
     \begin{tabular}{|c|c|c|c|c|c|c|c|}
     \hline
        SDK &	Unity3D (Android, iOS) &	Unreal Engine 4 &	Java &	Objective-C &	C++ & JavaScript \\
-       \hline0
+       \hline
 Wikitude & \checkmark & – & \checkmark & \checkmark & – & \checkmark \\
 \hline
 ARKit & \checkmark & \checkmark & – & \checkmark & – & – \\
@@ -519,18 +520,9 @@ Para instanciar un objeto, cuando se utiliza la detección de planos, la librer�
 
 Si queremos realizar una aplicación donde la estabilidad y precisión del ancla sea estricta, lo mas sensato es optar por usar la tecnología de detección de planos. Además de la exactitud que proporcionan estas librerías, también implementan la estimación de luz, la cual aporta una pincelada de realismo muy importante para la experiencia inmersiva. Las limitaciones de esta tecnología vienen dadas por el entorno, ya sea por el espacio libre que haya para reconocer un plano, por el nivel de luz, por el tipo de superficie, porque si la superficie es de color liso, seguramente haya dificultades para reconocer el plano, y finalmente debido al alto coste computacional, la cantidad de dispositivos soportados.\\
 
-Los puntos fuertes de las librerías que utilizan \textit{instant tracking} suplen las limitaciones vistas anteriormente. Su uso es recomendado para cuando la aplicación está pensada para ser usada en cualquier entorno, sin depender ni del nivel de luz ni de la superficie que nos rodea, y para cuando no sea necesario moverse en el entorno. 
+Los puntos fuertes de las librerías que utilizan \textit{instant tracking} suplen las limitaciones vistas anteriormente. Su uso es recomendado para cuando la aplicación está pensada para ser usada en cualquier entorno, sin depender ni del nivel de luz ni de la superficie que nos rodea, y para cuando no sea necesario moverse en el entorno. Además, cubre un rango muy amplio de dispositivos\cite{wikitudeInstant}, por lo que se puede llegar a un público mayor. Analizando las propiedades de esta tecnología, podríamos llegar a decir que actualmente es la realidad aumentada \textit{low cost}. \\
 
-
--Instant traking - funciona sin cámara juegas en cualquier sitio pero es menos estable
-	no se puede rodear para juegos como el dragón se puede utilizar, movimientos bruscos aguantan muy bien decir cual, aplicaciones pensados en ser usados desde un mismo punto sin movernos en posición pero si queremos movernos o rodearlo necesitamos detección de planos.
-    
--Detección de planos mucho mas exacto, necesita espacio, luz y un período de reconocimiento. El pokemon Go es instant traking.
-
-- Está en menos dispositivos, por el momento como manera de llegar a masas sería mejor instant traking.
-
-Luces ARkit
-
+Si miramos la calidad de la experiencia, está claro que usando la detección de planos, como puede ser ARKit y ARCore, obtenemos mejores resultados frente al \textit{instant tracking}, pero no es suficiente para posicionarse como la principal solución para todas las ideas del mercado. Aunque los resultados obtenidos por el \textit{instant tracking} sean peores, sus posibilidades de funcionar en casi cualquier dispositivo,momento y entorno hace que sea una opción a tener en cuenta para muchas aplicaciones.
 
 
 

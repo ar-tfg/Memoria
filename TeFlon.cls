@@ -565,7 +565,7 @@ sorting=ynt
 
 \newcommand*{\biblioTFG}[1]{
 \newpage
-\addcontentsline{toc}{chapter}{\protect\numberline{#1}Bibliografía y enlaces de referencia}%0
+\addcontentsline{toc}{chapter}{Bibliografía y enlaces de referencia}%0
 \printbibliography
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
