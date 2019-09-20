@@ -78,7 +78,8 @@
 \lhead[\grado]{\ntrabajo}
 \rhead[\facultad]{UCM}
 \renewcommand{\headrulewidth}{0.5pt}
-\lfoot[\npersona]{}
+\lfoot[Colin Ulrich, Patricia Cabrero, David González]{}
+%\rfoot[\thepage]{}
 \renewcommand{\footrulewidth}{0.5pt}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -514,8 +515,9 @@ title={#2},fonttitle=\bfseries,#1}
     \vspace{9mm}
     \begin{minipage}{10cm}
     \begin{center}
-    \tutor\\
-      \textbf{\ntrabajo}\\
+    Tutor:\\
+      \tutor\\
+      %\textbf{\ntrabajo}\\
       \vspace{2mm}
     \end{center}
     \vspace{4mm}

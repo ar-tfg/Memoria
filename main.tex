@@ -1,7 +1,19 @@
 \documentclass{TeFlon}
 \usepackage{pdfpages}
-%\usepackage{chngcntr}
-%\counterwithout{footnote}{chapter}
+\usepackage{fancyhdr}
+\usepackage{blindtext}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE]{\grado}
+\fancyhead[RE]{\facultad}
+\fancyhead[LO]{\ntrabajo}
+\fancyfoot[LO]{UCM}
+\fancyfoot[RE]{Colin Ulrich Cop, Patricia Cabrero Villar, David González Jiménez}
+\fancyfoot[LE,RO]{\thepage}
+
+\usepackage{chngcntr}
+\counterwithout{footnote}{chapter}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 %      TeFloN V 2.1
@@ -9,7 +21,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 \sloppy 
-\incorporarDatos{no}{UCM}{Informática}{Grado en Desarrollo de Videojuegos}{Pedro Pablo Gómez Martín}{2018--2019}{Madrid}{Colin Ulrich Cop,\\Patricia Cabrero Villar,\\David González Jiménez}{Realidad aumentada sin marcadores: posibilidades, librerías y prueba de concepto.}
+\incorporarDatos{si}{UCM}{Informática}{Desarrollo de Videojuegos}{Pedro Pablo Gómez Martín}{2018--2019}{Madrid}{Colin Ulrich Cop,\\Patricia Cabrero Villar,\\David González Jiménez}{Realidad aumentada sin marcadores: posibilidades, librerías y prueba de concepto.}
 \tnr{no}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Parte 1 - TFG
 \tituloTFG
@@ -42,6 +54,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Parte 4 - BIB y licencia
 \biblioTFG{}
 
-\licenciaTFG{PASCAL}{ENERO 2018}{CC-ZERO}
+%\licenciaTFG{PASCAL}{ENERO 2018}{CC-ZERO}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{document}
